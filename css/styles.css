@@ -1,0 +1,28 @@
+
+#cont {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 70;
+	overflow: auto;
+}
+
+.copy {
+	text-shadow: #111 1px 1px 0px;
+	text-align: center;
+	padding: 10px 0px;
+	line-height: 150%;
+}
+
+/* ========================================================
+   Top bar
+   ===================================================== */
+
+#header .container {
+	width: 900px;
+	margin-left: auto;
+	margin-right: auto;
+}

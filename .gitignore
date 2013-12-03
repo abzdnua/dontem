@@ -1,0 +1,5 @@
+.idea*
+.protected/config*
+.protected/runtime*
+.assets*
+.files*

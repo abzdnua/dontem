@@ -1,0 +1,5 @@
+<?
+
+Class Users extends BaseUsers{
+
+}
