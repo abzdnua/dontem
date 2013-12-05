@@ -16,7 +16,7 @@ class LoginForm extends Users
             // rememberMe needs to be a boolean
             array('rememberMe', 'boolean'),
             // password needs to be authenticated
-            array('pass', 'authenticate'),
+            array('password', 'authenticate'),
         );
     }
     /**
@@ -37,9 +37,9 @@ class LoginForm extends Users
 	{
 		if(!$this->hasErrors())
 		{
-			$this->_identity=new UserIdentity($this->login,$this->pass);
+			$this->_identity=new UserIdentity($this->login,$this->password);
 			if(!$this->_identity->authenticate())
-				$this->addError('pass','Неверное имя пользователя или пароль.');
+				$this->addError('password','Неверное имя пользователя или пароль.');
 //				$this->addError('pass',$this->pass);
 		}
 	}
@@ -52,7 +52,7 @@ class LoginForm extends Users
 	{
 		if($this->_identity===null)
 		{
-			$this->_identity=new UserIdentity($this->login,$this->pass);
+			$this->_identity=new UserIdentity($this->login,$this->password);
 			$this->_identity->authenticate();
 		}
 		if($this->_identity->errorCode===UserIdentity::ERROR_NONE)

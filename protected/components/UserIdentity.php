@@ -8,7 +8,7 @@ class UserIdentity extends CUserIdentity
 
         if($record===null)
             $this->errorCode=self::ERROR_USERNAME_INVALID;
-        else if($record->pass!==md5($this->password))
+        else if($record->password!==md5($this->password))
             $this->errorCode=self::ERROR_PASSWORD_INVALID;
         else
         {

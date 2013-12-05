@@ -29,9 +29,9 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'pass'); ?>
-		<?php echo $form->passwordField($model,'pass'); ?>
-		<?php echo $form->error($model,'pass'); ?>
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password'); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 
 	<div class="row rememberMe">

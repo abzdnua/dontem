@@ -1,13 +1,13 @@
 <?php
-
+require_once 'db_config.php';
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
-Yii::setPathOfAlias('bootstrap', 'protected/extensions/bootstrap');
+Yii::setPathOfAlias('bootstrap', 'protected/extensions/booster');
 // This is the main Web application configuration. Any writable
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'ДОНТЭМ',
+	'name'=>'DONTEM',
     'charset' => 'utf-8',
     'language' => 'ru',
 
@@ -39,7 +39,7 @@ return array(
 	// application components
 	'components'=>array(
         'bootstrap'=>array(
-            'class'=>'ext.bootstrap.components.Bootstrap',
+            'class'=>'ext.booster.components.Bootstrap',
         ),
         'errorHandler'=>array(
             'errorAction'=>'site/error',
@@ -83,10 +83,10 @@ return array(
 		// uncomment the following to use a MySQL database
 
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=adera',
+			'connectionString' => 'mysql:host=localhost;dbname='.$db_name,
 			'emulatePrepare' => true,
-			'username' => 'adera',
-			'password' => 'adera',
+			'username' => $db_login,
+			'password' => $db_pass,
 			'charset' => 'utf8',
             'enableProfiling' => true,
             'enableParamLogging'=>true,

@@ -1,5 +1,5 @@
 <?php
-
+require_once 'db_config.php';
 // This is the configuration for yiic console application.
 // Any writable CConsoleApplication properties can be configured here.
 return array(
@@ -17,10 +17,10 @@ return array(
 		// uncomment the following to use a MySQL database
 
         'db'=>array(            
-            'connectionString' => 'mysql:host=localhost;dbname=adera',
+            'connectionString' => 'mysql:host=localhost;dbname='.$db_name,
             'emulatePrepare' => true,
-            'username' => 'adera',
-            'password' => 'adera',
+            'username' => $db_login,
+            'password' => $db_pass,
             'charset' => 'utf8',
 
         ),

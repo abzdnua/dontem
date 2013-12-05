@@ -8,107 +8,116 @@ class FilesController extends Controller
     public function actionUpload(){
         $unused = Files::model()->findAllByAttributes(array('used'=>0));
         foreach($unused as $item){
-            if(strtotime($item->create_date)< mktime(0,0,0,date('m'),date('d')-1,date('Y'))){
-                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/'.$item->path);
-                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/m_'.$item->path);
-                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/s_'.$item->path);
-                $item->delete();
+            if(strtotime($item->create_time)< mktime(0,0,0,date('m'),date('d')-1,date('Y'))){
+                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/'.$item->file_path);
+                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/m_'.$item->file_path);
+                @unlink($_SERVER['DOCUMENT_ROOT'].'/files/s_'.$item->file_path);
+                // $item->delete();
             }
         }
 
 
         if(isset($_POST))
         {
-        $keys = array_keys($_FILES);
-            $model = $keys[0];
-         switch(strtolower($model)){
-             case 'manufactures':
-                $this->f = CUploadedFile::getInstanceByName($model.'[file]');
-                $this->img = new Upload($this->f->tempName);
-                 if(!getimagesize($this->f->tempName)){
-                     echo json_encode(array('fileName'=>'','id' =>'','err'=>'При загрузке возникли проблемы. Убедитесь что загружается изображение'));
-                 }else{
-                $res = $this->loadFile(true,37);
-                echo json_encode($res);
-                 }
-                 break;
-             case 'stocks':
-                 $this->f = CUploadedFile::getInstanceByName($_POST['field_name']);
-                 $this->img = new Upload($this->f->tempName);
-                 if($_POST['field_name'][strlen($_POST['field_name'])-2] == '1'){
-                     if(!getimagesize($this->f->tempName) or $this->img->image_src_x!=981 or $this->img->image_src_y!=360){
-                         echo json_encode(array('fileName'=>'','id' =>'','err'=>'При загрузке возникли проблемы.
-Убедитесь что загружается изображение размером 981*360рх'));
-                     }else{
-                     $res = $this->loadFile(981,360);
-                         echo json_encode($res);
-                     $res = $this->loadFile(462,true,false,'m_',false);
-                     $res = $this->loadFile(116,true,false,'s_',false);
-                     }
-                 }else{
-                     if(!getimagesize($this->f->tempName) or $this->img->image_src_x!=1920 or $this->img->image_src_y<100){
-                         echo json_encode(array('fileName'=>'','id' =>'','err'=>'При загрузке возникли проблемы.
-Убедитесь что загружается изображение размером
-1920рх по ширине и не менее 100рх по высоте'));
-                     }else{
-                     $res = $this->loadFile(1920,true,true,'back_',true);
-                         echo json_encode($res);
-                     }
-                 }
-                 break;
-             case 'constructioncrew':
+            set_time_limit(0);
+            $type = $_POST['img_type'];
+            $imgArray = Constants::getImgArray();
+            $err = array();
+            $success = array();
+            for($i=0;$i<count($_FILES['image']['name']);$i++){
+                foreach ($imgArray as $value) {
+                    if($type == $value['name']){
+                        $t = null;
+                        if (filesize($_FILES['image']['tmp_name'][$i]))
+                            list($w,$h,$t) = getimagesize($_FILES['image']['tmp_name'][$i]);
+                        if($value['any_size']){
+                            if($w<$value['width_expect'] or $h<$value['height_expect'] or is_null($t)){
+                                $err_message = 'Необходимо загружать изображение';
+                                $and = "";
+                                if($value['width_expect']!=0){
+                                    $err_message .= " не менее $value[width_expect]px по ширине";
+                                    $and = " и";
+                                }
+                                if($value['height_expect']!=0)
+                                    $err_message .= "$and не менее $value[height_expect]px по высоте";
+                                $err[] = array('fileName'=>$_FILES['image']['name'][$i],'err_msg'=>$err_message);
+                                continue;
+                                // echo json_encode(array('err'=>$err_message));
+                                // Yii::app()->end();
+                            }
+                        }else{
+                            if($w!=$value['width_expect'] or $h!=$value['height_expect'] or is_null($t)){
+                                $err_message = 'Необходимо загружать изображение';
+                                $and = "";
+                                if($value['width_expect']!=0){
+                                    $err_message .= " $value[width_expect]px по ширине";
+                                    $and = " и";
+                                }
+                                if($value['height_expect']!=0)
+                                    $err_message .= "$and $value[height_expect]px по высоте";
+                                $err[] = array('fileName'=>$_FILES['image']['name'][$i],'err_msg'=>$err_message);
+                                continue;
+                                // echo json_encode(array('err'=>$err_message));
+                                // Yii::app()->end();
+                            }
+                        }
 
-                 if($_POST['field_name'] == $model.'[file_main]')
-                 {
-                     $this->f = CUploadedFile::getInstanceByName($_POST['field_name']);
-                     $this->img = new Upload($this->f->tempName);
-                     if(!getimagesize($this->f->tempName) /*or $this->img->image_src_x!=171*/ or $this->img->image_src_y<188){
-                         echo json_encode(array('fileName'=>'','id' =>'','err'=>'При загрузке возникли проблемы.
-Убедитесь что загружается изображение размером 171*188рх'));
-                     }else{
-                         $res = $this->loadFile(true,188, true, 'main_', true, true, 171);
-                         echo json_encode($res);
-                     }
-                 }
-                 if($_POST['field_name'] == $model.'[file_gal][]')
-                 {
-                     $out = array();
-                     foreach($_FILES[$model]['tmp_name']['file_gal'] as $key => $file)
-                     {
-                         $this->img = new Upload($file);
-                         if($this->img->image_src_y < 720)
-                         {
-                             $res = array('err' => 'Высота картинки не может быть меньше 720px', 'fileName' => $_FILES[$model]['name']['file_gal'][$key]);
-                         }
-                         else
-                         {
-                             set_time_limit(0);
-                             $res = $this->loadFile(true,true);
-                             $r = $this->loadFile(true,720, true, '1280_', false, true, 1280, $res['fileName']);
-                             $r = $this->loadFile(true,576, true, '1024_', false, true, 1024, $res['fileName']);
-                             $r = $this->loadFile(true,459, true, '816_', false, true, 816, $res['fileName']);
-                             $r = $this->loadFile(true,110, true, 'prw_', false, true, 155, $res['fileName']);
+                        $this->img = new Upload($_FILES['image']['tmp_name'][$i]);
+                        // $res = $this->loadFile($value[width_to],$value[height_to]);
+                        if($type==Constants::IMG_TYPE_GALLERY){
+                            if(($value['width_to']==0 and $value['height_to']==0) or ($w<$value['width_to'] or $h<$value['height_to'])){
+                                $res = $this->loadGal($w,$h,$_POST['md5_name'],$value['alter_img']);
+                            }else{
+                                if($value['width_to']/$w < $value['height_to']/$h){
+                                    if($value['height_to']==0){
+                                        $res = $this->loadGal($value['width_to'],true,$_POST['md5_name'],$value['alter_img']);
+                                    }else{
+                                        $res = $this->loadGal(true,$value['height_to'],$_POST['md5_name'],$value['alter_img']);
+                                    }
+                                }
+                                else{
+                                    if($value['width_to']==0){
+                                        $res = $this->loadGal(true,$value['height_to'],$_POST['md5_name'],$value['alter_img']);
+                                    }else{
+                                        $res = $this->loadGal($value['width_to'],true,$_POST['md5_name'],$value['alter_img']);
+                                    }
+                                }
+                            }
+                            $success[] = $res;
+                        }else{
+                            if(($value['width_to']==0 and $value['height_to']==0) or ($w<$value['width_to'] or $h<$value['height_to'])){
+                                $res = $this->loadFile($w,$h);
+                            }else{
+                                if($value['width_to']/$w < $value['height_to']/$h){
+                                    if($value['height_to']==0){
+                                        $res = $this->loadFile($value['width_to'],true,true,'',true);
+                                    }else{
+                                        $res = $this->loadFile(true,$value['height_to'],true,'',true,true,$value['width_to']);
+                                    }
+                                }
+                                else{
 
-                         }
-                         array_push($out,$res);
-                     }
-                     echo json_encode($out);
-                 }
-                 break;
-                 /**/
-                 case 'howtouse':
-                     $this->f = CUploadedFile::getInstanceByName($model.'[file]');
-                     $this->img = new Upload($this->f->tempName);
-                     if(!getimagesize($this->f->tempName)){
-                         echo json_encode(array('fileName'=>'','id' =>'','err'=>'При загрузке возникли проблемы. Убедитесь что загружается изображение'));
-                     }else{
-                         $res = $this->loadFile(true,311);
-                         echo json_encode($res);
-                     }
-                     break;
-                 /**/
-
-         }
+                                    if($value['width_to']==0){
+                                        $res = $this->loadFile(true,$value['height_to'],true,'',true);
+                                    }else{
+                                        $res = $this->loadFile($value['width_to'],true,true,'',true,true,0,$value['height_to']);
+                                    }
+                                }
+                            }
+                            if(isset($value['alter_img'])){
+                                foreach ($value['alter_img'] as $key => $val) {
+                                        if($val['width_to']/$w < $val['height_to']/$h)
+                                            $alter_res = $this->loadFile(true,$val['height_to'],false,$key,false,true,$val['width_to']);
+                                        else
+                                            $alter_res = $this->loadFile($val['width_to'],true,false,$key,false,true,0,$val['height_to']);
+                                }
+                            }
+                            $success[] = $res;
+                        }
+                    }
+                }
+            }
+            echo json_encode(array('err'=>$err,'success'=>$success));
         Yii::app()->end();
 
     }
@@ -117,34 +126,44 @@ class FilesController extends Controller
 
 
 
-    function loadFile($x,$y, $new = true, $pref='', $save = true, $crop = false, $max_width = 0, $file_name = NULL){
+    function loadFile($x,$y, $new = true, $pref='', $save = true, $crop = false, $max_width = 0,$max_height = 0){
         $results = array();
-            if($new)
-
-            if(is_null($file_name))
-            {
+            if($new){
                 $this->uniq = uniqid();
             }
-            else
-            {
-                $fn = explode('.', $file_name);
-                $this->uniq = $fn[0];
-            }
-            $this->img->file_new_name_body = $pref.$this->uniq;
 
+            $this->img->file_new_name_body = $pref.$this->uniq;
 
             if($crop === true)
             {
-                if($y*$this->img->image_src_x/$this->img->image_src_y>$y*$max_width/$y)
-                {
-                    //сколько нужно обрезать
-                    $crop=(-1)*($y*$max_width/$y-$y*$this->img->image_src_x/$this->img->image_src_y);
-                    if ($crop%2 == 0){
-                        $this->img->image_crop            = '0 '.($crop/2).' 0 '.($crop/2);
-                    }
-                    else
+                if($max_width!=0){
+                    $c_y = (is_numeric($y))?$y:$this->img->image_src_y;
+                    if($c_y*$this->img->image_src_x/$this->img->image_src_y>$max_width)
                     {
-                        $this->img->image_crop            = '0 '.(int)($crop/2).' 0 '.((int)($crop/2)+1);
+                        //сколько нужно обрезать
+                        $crop=(-1)*($max_width-$c_y*$this->img->image_src_x/$this->img->image_src_y);
+                        if ($crop%2 == 0){
+                            $this->img->image_crop            = '0 '.($crop/2).' 0 '.($crop/2);
+                        }
+                        else
+                        {
+                            $this->img->image_crop            = '0 '.(int)($crop/2).' 0 '.((int)($crop/2)+1);
+                        }
+                    }
+                }
+                if($max_height!=0){
+                    $c_x = (!is_bool($x))?$x:$this->img->image_src_x;
+                   if($c_x*$this->img->image_src_y/$this->img->image_src_x>$max_height)
+                    {
+                        //сколько нужно обрезать
+                        $crop=(-1)*($max_height-$c_x*$this->img->image_src_y/$this->img->image_src_x);
+                        if ($crop%2 == 0){
+                            $this->img->image_crop            = ($crop/2).' 0 '.($crop/2).' 0';
+                        }
+                        else
+                        {
+                            $this->img->image_crop            = (int)($crop/2).' 0 '.((int)($crop/2)+1).' 0';
+                        }
                     }
                 }
             }
@@ -165,25 +184,53 @@ class FilesController extends Controller
             if(is_numeric($y) ) $this->img->image_y = $y;
             else $this->img->image_ratio_y = $y;
             if($x!=0 or $y!=0) $this->img->image_resize = true;
+            $this->img->jpeg_quality = 100;
             $this->img->process($_SERVER['DOCUMENT_ROOT'].'/files/');
-
+            $id = 0;
+            $err="";
             if($save){
             $files = new Files();
-            $files->path = $path;
-            $files->type = 1;
-            $files->table_name = '~';
-            $files->obj_id =0;
+            $files->file_path = $path;
             $files->save();
+            $id = $files->id;
                 $err = $files->getErrors();
             }
-            $results = array('fileName'=>$path,'id' => $files->id,'err'=>$err);
+
+            $results = array('fileName'=>$path,'id' => $id,'err'=>$err);
 
 
         return $results;
 
     }
 
+    private function loadGal($x,$y,$md5_name,$sizes){
+        $blockGal = new BlockGallery;
+        $blockGal->md5_name = $md5_name;
+        $blockGal->save();
+        $this->img->file_new_name_body = $md5_name.'_'.$blockGal->id;
+        $this->img->file_new_name_ext = 'jpg';
+        if(is_numeric($x) ) $this->img->image_x = $x;
+        else $this->img->image_ratio_x = $x;
+        if(is_numeric($y) ) $this->img->image_y = $y;
+        else $this->img->image_ratio_y = $y;
+        if($x!=0 or $y!=0) $this->img->image_resize = true;
+        $this->img->jpeg_quality = 100;
+        $this->img->process($_SERVER['DOCUMENT_ROOT'].'/files/gallery/size1/');
 
+        $path = $md5_name.'_'.$blockGal->id.'.jpg';
+
+        foreach ($sizes as $key => $size) {
+            $this->img->file_new_name_body = $md5_name.'_'.$blockGal->id;
+            $this->img->file_new_name_ext = 'jpg';
+            $this->img->image_y = $size['height_to'];
+            $this->img->image_ratio_x = true;
+            $this->img->image_resize = true;
+            $this->img->process($_SERVER['DOCUMENT_ROOT'].'/files/gallery'.$key);
+        }
+
+
+        return array('fileName'=>$path,'gal_id'=>$blockGal->id);
+    }
 
 
 }

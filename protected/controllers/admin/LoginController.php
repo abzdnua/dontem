@@ -19,7 +19,7 @@ class LoginController extends Controller
         if(isset($_POST['LoginForm']))
         {
             $model->login=$_POST['LoginForm']['login'];
-            $model->pass=$_POST['LoginForm']['pass'];
+            $model->password=$_POST['LoginForm']['password'];
             // validate user input and redirect to the previous page if valid
             if($model->validate() && $model->login())
                 $this->redirect(Yii::app()->user->returnUrl);

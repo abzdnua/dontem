@@ -128,7 +128,7 @@ class SiteController extends Controller
     }
 
     public function actionAdmin(){
-        $this->redirect('/admin/products');
+        $this->redirect('/admin/help');
     }
 
     public function actionCatalog(){
