@@ -19,7 +19,7 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	<?php
 		echo $form->labelEx($model,'image_id');
         echo CHtml::fileField('image[]', '',array('class'=>'upload'));?>
-        <small class="help-block">Изображение размером не менее 380рх по ширине и 405px по высоте</small>
+        <small class="help-block">Изображение размером не менее 1024px по ширине и 500px по высоте</small>
 
 	<?
 		echo $form->error($model,'image_id');
