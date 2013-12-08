@@ -19,6 +19,8 @@
  * @property string $change_time
  * @property integer $delete_denied
  * @property integer $deleted
+ * @property string $project_name
+ * @property string $video_des
  */
 class BaseProjects extends CActiveRecord
 {
@@ -40,11 +42,11 @@ class BaseProjects extends CActiveRecord
 		return array(
 			array('title, sub_title, tes_id, short_des, image_id', 'required'),
 			array('tes_id, file_id, image_id, is_active, create_user_id, change_user_id, delete_denied, deleted', 'numerical', 'integerOnly'=>true),
-			array('title, sub_title, video_link', 'length', 'max'=>250),
+			array('title, sub_title, video_link, project_name, video_des', 'length', 'max'=>250),
 			array('create_time, change_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, sub_title, tes_id, short_des, video_link, file_id, image_id, is_active, create_user_id, create_time, change_user_id, change_time, delete_denied, deleted', 'safe', 'on'=>'search'),
+			array('id, title, sub_title, tes_id, short_des, video_link, file_id, image_id, is_active, create_user_id, create_time, change_user_id, change_time, delete_denied, deleted, project_name, video_des', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +82,8 @@ class BaseProjects extends CActiveRecord
 			'change_time' => 'Change Time',
 			'delete_denied' => 'Delete Denied',
 			'deleted' => 'Deleted',
+			'project_name' => 'Project Name',
+			'video_des' => 'Video Des',
 		);
 	}
 
@@ -116,6 +120,8 @@ class BaseProjects extends CActiveRecord
 		$criteria->compare('change_time',$this->change_time,true);
 		$criteria->compare('delete_denied',$this->delete_denied);
 		$criteria->compare('deleted',$this->deleted);
+		$criteria->compare('project_name',$this->project_name,true);
+		$criteria->compare('video_des',$this->video_des,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

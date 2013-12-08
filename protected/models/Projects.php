@@ -24,11 +24,13 @@ class Projects extends BaseProjects
   public function attributeLabels()
   {
     return array(
-      'title' => 'Название',
+      'project_name' => 'Название',
+      'title' => 'Заголовок',
       'sub_title' => 'Подзаголовок',
       'tes_id' => 'ТЭС',
       'short_des' => 'Краткое описание',
       'video_link' => 'Ссылка на видео (YouTube)',
+      'video_des' => 'Описание к видео',
       'file_id' => 'Файл презентации',
       'image_id' => 'Изображение',
       'is_active' => 'Отображать?',

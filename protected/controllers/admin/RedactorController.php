@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class RedactorController extends Controller
 {
@@ -19,8 +19,10 @@ class RedactorController extends Controller
         switch($type)
         {
             case Constants::BLOCK_TYPE_TEXT: $this->renderPartial('_text',array('num'=>$num,'pos'=>$pos));break;
+            case Constants::BLOCK_TYPE_TEXT_BG: $this->renderPartial('_text',array('num'=>$num,'pos'=>$pos,'background'=>true));break;
             case Constants::BLOCK_TYPE_IMG_PARALLAX: $this->renderPartial('_parallax',array('num'=>$num,'pos'=>$pos));break;
             case Constants::BLOCK_TYPE_TEXT_IMG: $this->renderPartial('_text_img',array('num'=>$num,'pos'=>$pos));break;
+            case Constants::BLOCK_TYPE_IMG: $this->renderPartial('_img',array('num'=>$num,'pos'=>$pos));break;
             case Constants::BLOCK_TYPE_TEXT_VIDEO: $this->renderPartial('_text_video',array('num'=>$num,'pos'=>$pos));break;
             case Constants::BLOCK_TYPE_GALLERY: $this->renderPartial('_gallery',array('num'=>$num,'pos'=>$pos));break;
 
@@ -42,13 +44,13 @@ class RedactorController extends Controller
                 echo "</div>
                 <div class=\"forProdInfo\">
                     <button type=\"button\" class=\"pull-right close\" aria-hidden=\"true\">&times;</button>
-                    <strong>$prod->short_name</strong><br>                    
+                    <strong>$prod->short_name</strong><br>
                 </div>";
 
             }
         }
     }
-    
+
 
     public static function saveBlocks($post,$item)
     {
@@ -65,7 +67,7 @@ class RedactorController extends Controller
 
 
         //сохранение новых
-        if(isset($post['BlockText'])) $texts = $post['BlockText'];  
+        if(isset($post['BlockText'])) $texts = $post['BlockText'];
         if(isset($post['BlockImg'])) $imgs = $post['BlockImg'];
         if(isset($post['BlockVideo'])) $videos = $post['BlockVideo'];
         if(isset($post['gal_id'])) $gals = $post['gal_id'];
@@ -75,24 +77,38 @@ class RedactorController extends Controller
             $block->block_type = $value['block_type'];
             $block->parent_table = $item->tableName();
             $block->parent_id = $item->id;
-            $block->order = $value['order']; 
+            $block->order = $value['order'];
             $block->title = (isset($value['title']))?$value['title']:'';
             $block->save();
 
             switch ($block->block_type) {
+                case Constants::BLOCK_TYPE_TEXT_BG:
                 case Constants::BLOCK_TYPE_TEXT:
                     $block_text = new BlockText();
                     $block_text->block_id = $block->id;
                     $text = $texts[$key];
                     $block_text->content = $text['content'];
-                    $block_text->save(); 
+                    $block_text->save();
                     break;
-                
+
                 case Constants::BLOCK_TYPE_IMG_PARALLAX:
                     $block_img = new BlockImg();
                     $block_img->block_id = $block->id;
                     $img = $imgs[$key];
                     $block_img->img_type = Constants::IMG_TYPE_PARALLAX;
+                    $block_img->file_id = $img['file_id'];
+                    $block_img->save();
+
+                    $img_to_save = Files::model()->findByPk($img['file_id']);
+                    $img_to_save->used = 1;
+                    $img_to_save->save(false);
+                    break;
+
+                case Constants::BLOCK_TYPE_IMG:
+                    $block_img = new BlockImg();
+                    $block_img->block_id = $block->id;
+                    $img = $imgs[$key];
+                    $block_img->img_type = Constants::IMG_TYPE_FULL_WIDTH;
                     $block_img->file_id = $img['file_id'];
                     $block_img->save();
 
@@ -107,8 +123,8 @@ class RedactorController extends Controller
                     $img = $imgs[$key];
                     $block_img->img_type = Constants::IMG_TYPE_HALF_BLOCK;
                     $block_img->file_id = $img['file_id'];
-                    $block_img->save(); 
-                    
+                    $block_img->save();
+
                     $img_to_save = Files::model()->findByPk($img['file_id']);
                     $img_to_save->used = 1;
                     $img_to_save->save(false);

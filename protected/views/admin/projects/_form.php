@@ -9,6 +9,8 @@
 
 	<?php echo $form->checkBoxRow($model,'is_active'); ?>
 
+	<?php echo $form->textFieldRow($model,'project_name',array('class'=>'span7','maxlength'=>80)); ?>
+
 	<?php echo $form->textFieldRow($model,'title',array('class'=>'span7','maxlength'=>250)); ?>
 
 	<?php echo $form->textAreaRow($model,'sub_title',array('class'=>'span7','maxlength'=>250)); ?>
@@ -60,6 +62,8 @@
 		<?}?>
 	</div>
 
+  <?php echo $form->textFieldRow($model,'video_des',array('class'=>'span7','maxlength'=>250)); ?>
+
 	<?php
 		echo $form->labelEx($model,'file_id');
         echo CHtml::fileField('file', '',array('class'=>'uploadFile'));?>
@@ -82,15 +86,21 @@
                 array('label'=>'Блок: текст', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT.'",$(this));return false')
 
             	),
+                array('label'=>'Блок: текст (с фоном)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_BG.'",$(this));return false')
+
+            	),
+                array('label'=>'Блок: изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_IMG.'",$(this));return false')
+
+            	),
                 // array('label'=>'Блок: текст+изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_IMG.'",$(this));return false')
 
                 // ),
                 // array('label'=>'Блок: текст+видео', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_VIDEO.'",$(this));return false')
 
                 // ),
-                array('label'=>'Блок: изображение-параллакс (не больше 2)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'if($(\'[value="'.Constants::BLOCK_TYPE_IMG_PARALLAX.'"]\',$(this).parents(".EDITOR")).length<2){getBlock("'.Constants::BLOCK_TYPE_IMG_PARALLAX.'",$(this))}else{$.notify("Только 2 паралакс-изображения на странице", "info")};return false')
+                // array('label'=>'Блок: изображение-параллакс (не больше 2)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'if($(\'[value="'.Constants::BLOCK_TYPE_IMG_PARALLAX.'"]\',$(this).parents(".EDITOR")).length<2){getBlock("'.Constants::BLOCK_TYPE_IMG_PARALLAX.'",$(this))}else{$.notify("Только 2 паралакс-изображения на странице", "info")};return false')
 
-                ),
+                // ),
                 array('label'=>'Блок: галерея', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_GALLERY.'",$(this));return false')
 
                 ),
@@ -107,8 +117,12 @@ if(!$model->isNewRecord){
 					$this->renderPartial('/admin/redactor/_text',array('id'=>$value->id,'num'=>$key+1));
 					break;
 
-				case Constants::BLOCK_TYPE_IMG_PARALLAX:
-					$this->renderPartial('/admin/redactor/_parallax',array('id'=>$value->id,'num'=>$key+1));
+				case Constants::BLOCK_TYPE_TEXT_BG:
+					$this->renderPartial('/admin/redactor/_text',array('id'=>$value->id,'num'=>$key+1,'background'=>true));
+					break;
+
+				case Constants::BLOCK_TYPE_IMG:
+					$this->renderPartial('/admin/redactor/_img',array('id'=>$value->id,'num'=>$key+1));
 					break;
 
 				case Constants::BLOCK_TYPE_GALLERY:
@@ -137,3 +151,5 @@ if(!$model->isNewRecord){
 	</div>
 
 <?php $this->endWidget(); ?>
+
+

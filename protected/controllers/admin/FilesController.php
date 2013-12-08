@@ -215,7 +215,7 @@ class FilesController extends Controller
         else $this->img->image_ratio_y = $y;
         if($x!=0 or $y!=0) $this->img->image_resize = true;
         $this->img->jpeg_quality = 100;
-        $this->img->process($_SERVER['DOCUMENT_ROOT'].'/files/gallery/size1/');
+        $this->img->process($_SERVER['DOCUMENT_ROOT'].'/files/gallery/size3/');
 
         $path = $md5_name.'_'.$blockGal->id.'.jpg';
 

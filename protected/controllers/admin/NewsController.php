@@ -73,7 +73,7 @@ class NewsController extends Controller
 				$newImg = Files::model()->findByPk($model->image_id);
 				$newImg->used = 1;
 				$newImg->save(false);
-
+				$this->saveTags($_POST,$model->id);
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);
 
@@ -109,7 +109,7 @@ class NewsController extends Controller
 				$newImg = Files::model()->findByPk($model->image_id);
 				$newImg->used = 1;
 				$newImg->save(false);
-
+				$this->saveTags($_POST,$model->id);
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);
 
@@ -183,6 +183,38 @@ class NewsController extends Controller
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
+		}
+	}
+
+
+	public function saveTags($post,$id)
+	{
+		Yii::app()->db->createCommand("DELETE FROM news_and_tags WHERE news_id = $id")->execute();
+		if(isset($post['tag'])){
+			$postTags = $post['tag'];
+			$dbTags = Tags::model()->findAll();
+			$nAt = array();
+			if($dbTags){
+				foreach ($dbTags as $key => $dbTag) {
+					if(in_array($dbTag['tag'],$postTags)){
+						$ex = array_search($dbTag['tag'],$postTags);
+						$nAt[] = $dbTag['id'];
+						unset($postTags[$ex]);
+					}
+				}
+			}
+			foreach ($postTags as $key => $postTag) {
+				$tag = new Tags;
+				$tag->tag = $postTag;
+				$tag->save();
+				$nAt[] = $tag->id;
+			}
+			foreach ($nAt as $key => $value) {
+				$newsAndTags = new NewsAndTags;
+				$newsAndTags->news_id = $id;
+				$newsAndTags->tag_id = $value;
+				$newsAndTags->save();
+			}
 		}
 	}
 }

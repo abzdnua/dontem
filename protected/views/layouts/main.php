@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="language" content="en" />
-    <link rel='shortcut icon' href='../images/favicon.ico' />
+    <link rel='shortcut icon' href='/images/favicon.ico' />
 
 
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/reset.css" />
@@ -117,9 +117,11 @@ $(document).ready(function(){
             <ul>
                 <li class="sub">Проекты
                     <div class="submenu">
-                    <a class="f" href="<?=Yii::app()->urlManager->createUrl('site/project')?>">Славянская ТЭС</a>
-                    <a class="s" href="">Старобешевская ТЭС</a>
-                    <a class="t" href="">Трипольская ТЭС</a>
+                        <?php $tes = Constants::getTesArray();
+                        foreach ($tes as $key => $value) {?>
+                           <a href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$key))?>"><?php echo $value ?></a>
+                         <?} ?>
+
                     </div>
                 </li>
                 <li><a href="<?=Yii::app()->urlManager->createUrl('site/news')?>">Новости</a></li>

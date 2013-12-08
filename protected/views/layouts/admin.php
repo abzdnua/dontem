@@ -61,6 +61,10 @@
     font-weight: bold;
     display: block;
 }
+.my_label{
+    margin: 3px;
+    line-height: 24px !important;
+}
 </style>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
