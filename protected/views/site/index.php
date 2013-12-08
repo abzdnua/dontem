@@ -21,19 +21,31 @@ $this->pageTitle=Yii::app()->name;
         });
     });
 </script>
+<?php $projects = Projects::model()->findAll("deleted = 0 AND is_active = 1 LIMIT 0,3") ?>
 <div class="w_980 page_princip" >
 <h1 style="margin-bottom: 50px;">ООО «ДОНТЭМ» -Донбасстеплоэлектромонтаж</h1>
+<?php if($projects){?>
     <div class="container">
         <div id="iview">
-
-            <a href="<?=Yii::app()->urlManager->createUrl('site/project_star_tes')?> " style="display: block;cursor: pointer" data-iview:image="images/project/pr1_03.png" >
-                <div class="iview-caption " data-x="15" data-y="12" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text">Энергоблок №6: Подготовка к реконструкции </div></div>
+            <?php foreach ($projects as $project) {?>
+            <?php $show_img = Files::model()->findByPk($project->image_id);
+                          if($show_img){
+                              if(is_file($_SERVER['DOCUMENT_ROOT'].'/files/m_'.$show_img->file_path)){
+                                  $src = "files/m_$show_img->file_path";
+                              }
+                          }
+                        ?>
+            <a href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$prev['id']))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
+                <div class="iview-caption " data-x="15" data-y="12" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
                   <div class="iview-caption" data-x="435" data-y="218" data-transition="wipeDown" data-speed="1000" data-easing="easeOutQuint" ><div class="bottom_text">
-                        Подготовка к масштабному проекту строительства энергоблока №6 Славянской ТЭС с использованием технологии ЦКС (сжигание твердого топлива в циркулирующем кипящем слое) и разделением его на два энергоблока - №6А и №6Б, мощностью по 330 МВт каждый, началась в 2013 году. Длительность реконструкции составит 37 месяцев.
+                        <?php echo $project->short_des ?>
                     </div></div>
             </a>
+            <?} ?>
 
-            <a href="<?=Yii::app()->urlManager->createUrl('site/project_star_tes2')?> " style="display: block;cursor: pointer" data-iview:image="images/project/pr_03.png" >
+
+
+            <!-- <a href="<?=Yii::app()->urlManager->createUrl('site/project_star_tes2')?> " style="display: block;cursor: pointer" data-iview:image="images/project/pr_03.png" >
                 <div class="iview-caption " data-x="15" data-y="12" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint"><div class="top_text">Энергоблок №6: Подготовка к реконструкции </div></div>
                 <div class="iview-caption" data-x="435" data-y="276" data-transition="wipeDown" data-speed="1000" data-easing="easeOutQuint"  ><div class="bottom_text">
                         Подготовка к масштабному проекту строительства энергоблока №6 Славянской ТЭС с использованием технологии ЦКС
@@ -48,17 +60,77 @@ $this->pageTitle=Yii::app()->name;
                         Подготовка к масштабному проекту строительства энергоблока №6 Славянской ТЭС с использованием технологии ЦКС (сжигание твердого топлива в циркулирующем кипящем слое) и разделением его на два энергоблока - №6А и №6Б, мощностью по 330 МВт каждый, началась в 2013 году. Длительность реконструкции составит 37 месяцев.
                     </div></div>
 
-            </a>
+            </a> -->
 
 
         </div>
     </div>
+    <?}?>
     <a href="<?=Yii::app()->urlManager->createUrl('site/news')?>" class="all_news bt_simp">Все новости</a>
     <div class="clr" style="margin-top: 38px"></div>
 
     <div class="block_news w_940">
+        <?php $news = News::model()->findAll("deleted = 0 AND is_active = 1  ORDER BY news_date DESC LIMIT 0,6") ?>
         <ul>
-            <li>
+
+            <?php foreach ($news as $key => $oneNews) {$nm = ($key+1)%3==0?'class="no_mar_right"':'';
+                ?>
+                <li <?php echo $nm ?>>
+                    <?php $show_img = Files::model()->findByPk($oneNews->image_id);
+                      if($show_img){
+                          if(is_file($_SERVER['DOCUMENT_ROOT'].'/files/m_'.$show_img->file_path)){?>
+                              <img src="/files/m_<?php echo $show_img->file_path?>" >
+                          <?php }
+                      }
+                    ?>
+                    <!-- <img src="../images/news/news_03.png"/> -->
+
+
+                    <div class="text_move">
+                        <span class="arrow"></span>
+                        <div class="textblock"><div><?php echo $oneNews->title ?></div></div>
+                        <div class="text_hiden">
+                            <div class="date_news"><?php echo date('d.m.Y',strtotime($oneNews->news_date)) ?></div>
+                            <div class="short_des"><?php echo $oneNews->short_des ?></div>
+                            <div class="before_type">
+                                <span class="type">Тип работ:</span> <span class="text_n"><?php echo $oneNews->work_type?></span>
+                            </div>
+                            <span class="type">Сложность: </span>
+                            <div class="progress_bar">
+                                <span class="blue"><?php echo Constants::getDifficulty($oneNews->difficulty) ?></span>
+                                <div class="compl">
+                                    <?php switch($oneNews->difficulty){
+                                            case 1: $w = 20;break;
+                                            case 2: $w = 95;break;
+                                            case 3: $w = 175;break;
+                                            case 4: $w = 250;break;
+
+                                    } ?>
+
+                                    <div class="progr_bar" style="width: <?php echo $w?>px"></div>
+
+                                </div>
+                                <span class="left">Плановая</span><span class="right">Уникальная</span>
+                            </div>
+                            <div class="clr"></div>
+                            <?php $tags = Yii::app()->db->createCommand("SELECT t.tag FROM tags as t, news_and_tags as nat WHERE t.id = nat.tag_id AND nat.news_id = $oneNews->id")->queryColumn() ?>
+                            <div class="block_href">
+                                <?php foreach ($tags as $tag) {
+                                echo "<a class='bt_news' href='/'>$tag</a>";
+
+                                } ?>
+<!--                                 <a class="bt_news" href="/">Славянская ТЭС</a>
+                                <a class="bt_news" href="/">Реконструкция энергоблока</a>
+ -->                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                            <a class="bt" href="<?=Yii::app()->urlManager->createUrl('site/newsmore',array('id'=>$oneNews->id))?>">ПОДРОБНЕЕ</a>
+
+                        </div>
+                    </div>
+                </li>
+                <?}?>
+            <!-- <li>
 
                 <img src="../images/news/news_03.png"/>
 
@@ -278,7 +350,7 @@ $this->pageTitle=Yii::app()->name;
 
                     </div>
                 </div>
-            </li>
+            </li> -->
         </ul>
     <div class="clr"></div>
     </div>
