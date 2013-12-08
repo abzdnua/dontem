@@ -117,9 +117,9 @@ $(document).ready(function(){
             <ul>
                 <li class="sub">Проекты
                     <div class="submenu">
-                        <?php $tes = Constants::getTesArray();
+                        <?php $tes = $tes = Yii::app()->db->createCommand("SELECT DISTINCT(tes_id) FROM projects WHERE deleted = 0 AND is_active = 1")->queryColumn();
                         foreach ($tes as $key => $value) {?>
-                           <a href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$key))?>"><?php echo $value ?></a>
+                           <a href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$value))?>"><?php echo Constants::getTes($value) ?></a>
                          <?} ?>
 
                     </div>
