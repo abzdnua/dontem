@@ -11,6 +11,7 @@ $perPage = 9;
 $page = (isset($_GET['page']))?$_GET['page']:1;
 
 $curType = (isset($_GET['type']))?$_GET['type']:'';
+$curTag = (isset($_GET['tag']))?$_GET['tag']:'';
 $curDifficulty = (isset($_GET['difficulty']))?$_GET['difficulty']:'';
 $curYear = (isset($_GET['year']))?$_GET['year']:'';
 $curMonth = (isset($_GET['month']))?$_GET['month']:'';
@@ -24,6 +25,10 @@ if($curYear){
     else
         $query .= " AND DATE_FORMAT(news_date,'%Y') = $curYear";
 
+}
+if($curTag){
+    $nIdArray = Yii::app()->db->createCommand("SELECT nat.news_id FROM news_and_tags as nat, tags as t WHERE t.tag = '$curTag' AND nat.tag_id = t.id")->queryColumn();
+    $query .= " AND id IN (".implode(',',$nIdArray).")";
 }
 $query .=' ORDER BY news_date DESC';
 $query_count = str_replace('*','COUNT(id)',$query);
@@ -51,6 +56,7 @@ if(!$news)
 
 <form method="post" action="/getNews">
     <input type="hidden" name ="page" value="<?php echo $page ?>">
+    <input type="hidden" name ="tag" value="<?php echo $curTag ?>">
     <input type="hidden" name ="work_type" value="<?php echo $curType ?>">
     <input type="hidden" name ="difficulty" value="<?php echo $curDifficulty ?>">
     <input type="hidden" name ="news_date" value="<?php echo $curYear; echo($curMonth)?'-'.$curMonth:'' ?>">
@@ -170,7 +176,7 @@ if(!$news)
                             <?php $tags = Yii::app()->db->createCommand("SELECT t.tag FROM tags as t, news_and_tags as nat WHERE t.id = nat.tag_id AND nat.news_id = $oneNews->id")->queryColumn() ?>
                             <div class="block_href">
                                 <?php foreach ($tags as $tag) {
-                                echo "<a class='bt_news' href='/'>$tag</a>";
+                                echo "<a class='bt_news change_tag' >$tag</a>";
 
                                 } ?>
 <!--                                 <a class="bt_news" href="/">Славянская ТЭС</a>
@@ -514,6 +520,9 @@ if(!$news)
             $('form').submit()
         }).on('click','.change_page',function(){
             $('input[name=page]').val($(this).text())
+            $('form').submit()
+        }).on('click','.change_tag',function(){
+            $('input[name=tag]').val($(this).text())
             $('form').submit()
         })
     })

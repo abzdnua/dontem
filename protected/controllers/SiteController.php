@@ -184,6 +184,9 @@ class SiteController extends Controller
         if($_POST['page']){
             $array_link['page'] = $_POST['page'];
         }
+        if($_POST['tag']){
+            $array_link['tag'] = $_POST['tag'];
+        }
 
         $link = Yii::app()->urlManager->createUrl('site/news',$array_link);
         // print_r($array_link);

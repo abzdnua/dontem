@@ -19,6 +19,12 @@ $this->pageTitle=Yii::app()->name;
             controlNav: true,
             tooltipY: -15
         });
+
+        $(document).on('click','.change_tag',function(){
+            $('input[name=tag]').val($(this).text())
+            $('form').submit()
+        })
+
     });
 </script>
 <?php $projects = Projects::model()->findAll("deleted = 0 AND is_active = 1 LIMIT 0,3") ?>
@@ -41,7 +47,7 @@ $this->pageTitle=Yii::app()->name;
                         <?php echo $project->short_des ?>
                     </div></div>
             </a>
-            <?} ?>
+            <?}?>
 
 
 
@@ -70,6 +76,15 @@ $this->pageTitle=Yii::app()->name;
     <div class="clr" style="margin-top: 38px"></div>
 
     <div class="block_news w_940">
+
+    <form method="post" action="/getNews">
+        <input type="hidden" name ="page" value="1">
+        <input type="hidden" name ="tag" value="">
+        <input type="hidden" name ="work_type" value="">
+        <input type="hidden" name ="difficulty" value="">
+        <input type="hidden" name ="news_date" value="">
+    </form>
+
         <?php $news = News::model()->findAll("deleted = 0 AND is_active = 1  ORDER BY news_date DESC LIMIT 0,6") ?>
         <ul>
 
@@ -116,7 +131,7 @@ $this->pageTitle=Yii::app()->name;
                             <?php $tags = Yii::app()->db->createCommand("SELECT t.tag FROM tags as t, news_and_tags as nat WHERE t.id = nat.tag_id AND nat.news_id = $oneNews->id")->queryColumn() ?>
                             <div class="block_href">
                                 <?php foreach ($tags as $tag) {
-                                echo "<a class='bt_news' href='/'>$tag</a>";
+                                echo "<a class='bt_news change_tag' >$tag</a>";
 
                                 } ?>
 <!--                                 <a class="bt_news" href="/">Славянская ТЭС</a>
