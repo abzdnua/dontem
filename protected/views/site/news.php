@@ -110,7 +110,7 @@ if(!$news)
                     $curYear = "0";
                     foreach ($dates as $date) {
                         if($curYear!=$date['year']){
-                            echo "<div class='spisok_elem year change_d'>$date[year]</div>";
+                            echo "<div class='spisok_elem year change_d' id='$date[year]'>$date[year]</div>";
                             $curYear = $date['year'];
                         }
                         echo "<div class='spisok_elem change_d' id='$date[year]-$date[month]'>".DLL::getRusMonth($date['month']).'</div>';
