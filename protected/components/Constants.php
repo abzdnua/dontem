@@ -126,7 +126,7 @@ class Constants
 //в галерею
         $type = array();
         $type['name'] = self::IMG_TYPE_GALLERY;
-        $type['width_to'] = 0;
+        $type['width_to'] = 1280;
         $type['height_to'] = 720;
         $type['any_size'] = true;
         $type['width_expect'] = 0;
@@ -134,7 +134,7 @@ class Constants
         $type['alter_img'] = array(
                         '/size2'=>array('height_to'=>578),
                         '/size1'=>array('height_to'=>460),
-                        '/'=>array('height_to'=>270),
+                        '/'=>array('height_to'=>178),
                     );
 
 
