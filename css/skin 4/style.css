@@ -33,6 +33,12 @@
 
 .iview-controlNav a {
 	text-indent: -9999px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
 }
 
 .iview-controlNav a.iview-controlPrevNav {

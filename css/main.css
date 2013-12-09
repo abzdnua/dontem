@@ -830,6 +830,7 @@ h3
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border: 1px solid #2b76a4;
+    cursor: pointer;
 
 }
 .w_940
