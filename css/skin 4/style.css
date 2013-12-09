@@ -60,7 +60,6 @@
     background-position: 0 -42px;
 }
 .iview-controlNav div.iview-items {
-
 	padding: 0px 10px 0px 10px;
 	height: 44px;
     text-align: center;
@@ -73,14 +72,15 @@
     width: 20px;
     height: 20px;
 	background: url('../../images/navig.png') no-repeat;
+    background-position: 0px -19px;
 	line-height: 0px;
 }
 .iview-controlNav a.iview-control:hover
 {
-    background-position: 0px -19px;
+    background-position: 0px 0px;
 }
 .iview-controlNav a.iview-control.active {
-	background-position: 0px -19px;
+	background-position: 0px 0px;
 }
 .caption-contain
 {
