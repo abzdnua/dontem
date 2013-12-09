@@ -137,28 +137,7 @@ echo $form->error($model,'work_type');
             ?>
   </span>
 
-	<?php
-	if($model->isNewRecord)
-		$model->news_date = date('d.m.Y');
-	else
-		$model->news_date = date('d.m.Y',strtotime($model->news_date));
-	 ?>
-<?php echo $form->labelEx($model,'news_date'); ?>
 
-<?php $this->widget('bootstrap.widgets.TbDatePicker', array(
-	'model'=>$model,
-    'attribute'=>'news_date',
-    // additional javascript options for the date picker plugin
-    'options'=>array(
-        'language'=>'ru',
-		'format'=>'dd.mm.yyyy',
-    ),
-    'htmlOptions'=>array(
-    	'class'=>'span5',
-        'style'=>'height:20px;'
-    ),
-)); ?>
-<?php echo $form->error($model,'news_date') ?>
 
 
 <?php
@@ -214,9 +193,12 @@ $this->widget(
                 array('label'=>'Блок: текст', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT.'",$(this));return false')
 
               ),
-                // array('label'=>'Блок: текст (c фоном)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_BG.'",$(this));return false')
+                array('label'=>'Блок: текст (c фоном)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_BG.'",$(this));return false')
 
-              // ),
+              ),
+                 array('label'=>'Блок: изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_IMG.'",$(this));return false')
+
+              ),
                 // array('label'=>'Блок: текст+изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_IMG.'",$(this));return false')
 
                 // ),
@@ -244,6 +226,10 @@ if(!$model->isNewRecord){
 
         case Constants::BLOCK_TYPE_TEXT_BG:
           $this->renderPartial('/admin/redactor/_text',array('id'=>$value->id,'num'=>$key+1,'background'=>true));
+          break;
+
+        case Constants::BLOCK_TYPE_IMG:
+          $this->renderPartial('/admin/redactor/_img',array('id'=>$value->id,'num'=>$key+1));
           break;
 
         case Constants::BLOCK_TYPE_IMG_PARALLAX:
