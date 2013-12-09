@@ -7,6 +7,8 @@ $this->breadcrumbs=array(
 );
 ?>
 
+
+
 <div class="w_980 page_news page_project">
 
             <h1>Проекты на Славянской Тэс</h1>

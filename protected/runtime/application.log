@@ -8949,3 +8949,102 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/admin/projects/update/img/ac_favic.ico
 ---
+2013/12/09 17:24:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/
+---
+2013/12/09 17:24:15 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/equipment
+---
+2013/12/09 17:34:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/
+---
+2013/12/09 17:34:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/project
+---
+2013/12/09 17:41:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/
+---
+2013/12/09 17:41:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/baraban
+---
+2013/12/09 17:41:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/
+---
+2013/12/09 17:42:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/project
+---
+2013/12/09 17:42:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Системе не удалось найти запрашиваемое действие "undefined".' in Z:\home\don\www\framework\web\CController.php:483
+Stack trace:
+#0 Z:\home\don\www\framework\web\CController.php(270): CController->missingAction('undefined')
+#1 Z:\home\don\www\framework\web\CWebApplication.php(282): CController->run('undefined')
+#2 Z:\home\don\www\framework\web\CWebApplication.php(141): CWebApplication->runController('site/undefined')
+#3 Z:\home\don\www\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 Z:\home\don\www\index.php(15): CApplication->run()
+#5 {main}
+REQUEST_URI=/undefined
+HTTP_REFERER=http://don/project
+---
