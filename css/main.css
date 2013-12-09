@@ -118,7 +118,12 @@ h1
     color: #004075;
     text-decoration: none;
 }
-
+.menu ul li a.color_menu
+{
+    cursor: default;
+    color: #004075;
+    text-decoration: none;
+}
 .menu ul li:last-child
 {
     margin-right: 0 !important;

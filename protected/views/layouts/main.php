@@ -124,11 +124,13 @@ $(document).ready(function(){
 
                     </div>
                 </li>
-                <li><a href="<?=Yii::app()->urlManager->createUrl('site/news')?>">Новости</a></li>
-                <li><a href="<?=Yii::app()->urlManager->createUrl('site/about')?>"> О нас </a></li>
-                <li><a href="<?=Yii::app()->urlManager->createUrl('site/principles')?>">Ценности бренда </a> </li>
-                <li><a href="<?=Yii::app()->urlManager->createUrl('site/equipment')?>">Оборудование  </a> </li>
-                <li><a href="<?=Yii::app()->urlManager->createUrl('site/contact')?>">Наши контакты</a> </li>
+
+
+                <li><a class= "<? if(strpos(Yii::app()->controller->action->id,'news')!==false){echo 'color_menu';} ?>" href="<?=Yii::app()->urlManager->createUrl('site/news')?>">Новости</a></li>
+                <li><a class= "<? if(strpos(Yii::app()->controller->action->id,'about')!==false){echo 'color_menu';} ?>" href="<?=Yii::app()->urlManager->createUrl('site/about')?>"> О нас </a></li>
+                <li><a class= "<? if(strpos(Yii::app()->controller->action->id,'principles')!==false){echo 'color_menu';} ?>" href="<?=Yii::app()->urlManager->createUrl('site/principles')?>">Ценности бренда </a> </li>
+                <li><a class= "<? if(strpos(Yii::app()->controller->action->id,'equipment')!==false){echo 'color_menu';} ?>" href="<?=Yii::app()->urlManager->createUrl('site/equipment')?>">Оборудование  </a> </li>
+                <li><a class= "<? if(strpos(Yii::app()->controller->action->id,'contact')!==false){echo 'color_menu';} ?>" href="<?=Yii::app()->urlManager->createUrl('site/contact')?>">Наши контакты</a> </li>
             </ul>
         </div>
         <div class="clr"></div>
