@@ -24,7 +24,7 @@ $this->pageTitle=Yii::app()->name;
             $('input[name=tag]').val($(this).text())
             $('form').submit()
         }).on('click','.iviewSlider',function(){
-            console.log($('a:visible',$(this)).attr('href'))
+            location.href = $('a:not([style*="display:none"])',$(this)).attr('href')
         })
 
     });
