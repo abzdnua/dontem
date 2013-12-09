@@ -15,6 +15,8 @@ $this->pageTitle=Yii::app()->name;
     $(document).ready(function(){
         $('#iview').iView({
             pauseTime: 11000,
+            width: 900,
+            height: 370,
             directionNav: false,
             controlNav: true,
             tooltipY: -15
@@ -23,8 +25,6 @@ $this->pageTitle=Yii::app()->name;
         $(document).on('click','.change_tag',function(){
             $('input[name=tag]').val($(this).text())
             $('form').submit()
-        }).on('click','.iviewSlider',function(){
-            location.href = $('a:not([style*="display:none"])',$(this)).attr('href')
         })
 
     });
@@ -43,12 +43,14 @@ $this->pageTitle=Yii::app()->name;
                               }
                           }
                         ?>
-            <a href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
+            <div href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
+                <a class="iview-caption" data-x="0" data-y="0" style="width:900px;height:370px" href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>">                                   </a>
+
                 <div class="iview-caption " data-x="15" data-y="12" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
                   <div class="iview-caption" data-x="435" data-y="218" data-transition="wipeDown" data-speed="1000" data-easing="easeOutQuint" ><div class="bottom_text">
                         <?php echo DLL::substrText($project->short_des,340) ?>
                     </div></div>
-            </a>
+            </div>
             <?}?>
 
 
