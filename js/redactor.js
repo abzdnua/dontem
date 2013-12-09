@@ -66,7 +66,7 @@ if($('.editor_block textarea:not(.justTextarea)').length>0)
     $('.editor_block textarea:not(.justTextarea)').ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
 
     $(document).on('click','.editor_block > .close',function(){
-        var textarea = $('textarea',$(this).parents('.editor_block'))
+        var textarea = $('textarea:not(.justTextarea)',$(this).parents('.editor_block'))
         if(textarea.length>0){
         var editor = textarea.ckeditorGet()
             editor.destroy()
