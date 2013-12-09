@@ -196,8 +196,8 @@ $this->widget(
     $newsTags = Tags::model()->findAll("id IN (SELECT tag_id FROM news_and_tags WHERE news_id = $model->id)");
       if($newsTags)
         foreach ($newsTags as $key => $newsTag) {?>
-            <div class="label my_label label-info"><?php echo $newsTag->tag ?><button type="button" class="pull-right close" aria-hidden="true">&times;</button>
-              <input type="hidden" name="tag[]" value="<?php echo $newsTag->tag ?>" />
+            <div class="label my_label label-info"><?php echo trim($newsTag->tag) ?><button type="button" class="pull-right close" aria-hidden="true">&times;</button>
+              <input type="hidden" name="tag[]" value="<?php echo trim($newsTag->tag) ?>" />
               </div>
         <?}
       }
