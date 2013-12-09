@@ -48,7 +48,7 @@ $this->breadcrumbs=array(
                         <!-- <img src="../images/project/project_big.png"/> -->
                         <div class="top_text"><?php echo $project->project_name ?></div>
                         <div class="bottom_text">
-                            <?php echo $project->short_des ?>
+                            <?php echo echo DLL::substrText($project->short_des,340) ?>
                         </div>
                     </div>
                     <div class="clr"></div>

@@ -64,4 +64,31 @@ class DLL{
         }
     }
 
+
+    public static function substrText($inputStr,$substrLen = 200)
+    {
+        $substrLen *=2
+        $inputStr = strip_tags($inputStr);
+        $inputStrLen = mb_strlen($inputStr);
+        if ($inputStrLen)
+        {
+            if ($substrLen < mb_strlen($inputStr))
+            {
+                $text = mb_substr($inputStr, 0, mb_strrpos(mb_substr($inputStr, 0, $substrLen), " "));
+                $result['text'] = $text.'&nbsp;...';
+                $result['length'] = mb_strlen($text);
+                $result['isFull'] = false;
+            }
+            else
+            {
+                $result['text'] = $inputStr;
+                $result['length'] = $inputStrLen;
+                $result['isFull'] = true;
+            }
+            return $result['text'];
+        }
+        else return false;
+    }
+
+
 }

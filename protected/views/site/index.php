@@ -44,7 +44,7 @@ $this->pageTitle=Yii::app()->name;
             <a href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
                 <div class="iview-caption " data-x="15" data-y="12" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
                   <div class="iview-caption" data-x="435" data-y="218" data-transition="wipeDown" data-speed="1000" data-easing="easeOutQuint" ><div class="bottom_text">
-                        <?php echo $project->short_des ?>
+                        <?php echo DLL::substrText($project->short_des,340) ?>
                     </div></div>
             </a>
             <?}?>
