@@ -78,7 +78,7 @@ class RedactorController extends Controller
             $block->parent_table = $item->tableName();
             $block->parent_id = $item->id;
             $block->order = $value['order'];
-            $block->title = (isset($value['title']))?$value['title']:'';
+            $block->title = htmlspecialchars((isset($value['title']))?$value['title']:'');
             $block->save();
 
             switch ($block->block_type) {
