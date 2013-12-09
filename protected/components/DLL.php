@@ -45,4 +45,50 @@ class DLL{
         return strtolower(preg_replace('/[^0-9-_\+a-zA-Z]/', '', str_replace($_ru, $_en, preg_replace('/ +/', '_', trim(preg_replace('/\(.+?\)/si', '', $str))))));
     }
 
+
+    public static function getRusMonth($n)
+    {
+        switch ($n){
+            case 1:return 'Январь';break;
+            case 2:return 'Февраль';break;
+            case 3:return 'Март';break;
+            case 4:return 'Апрель';break;
+            case 5:return 'Май';break;
+            case 6:return 'Июнь';break;
+            case 7:return 'Июль';break;
+            case 8:return 'Август';break;
+            case 9:return 'Сентябрь';break;
+            case 10:return 'Октябрь';break;
+            case 11:return 'Ноябрь';break;
+            case 12:return 'Декабрь';break;
+        }
+    }
+
+
+    public static function substrText($inputStr,$substrLen = 200)
+    {
+        $substrLen *=2;
+        $inputStr = strip_tags($inputStr);
+        $inputStrLen = mb_strlen($inputStr);
+        if ($inputStrLen)
+        {
+            if ($substrLen < mb_strlen($inputStr))
+            {
+                $text = mb_substr($inputStr, 0, mb_strrpos(mb_substr($inputStr, 0, $substrLen), " "));
+                $result['text'] = $text.'&nbsp;...';
+                $result['length'] = mb_strlen($text);
+                $result['isFull'] = false;
+            }
+            else
+            {
+                $result['text'] = $inputStr;
+                $result['length'] = $inputStrLen;
+                $result['isFull'] = true;
+            }
+            return $result['text'];
+        }
+        else return false;
+    }
+
+
 }

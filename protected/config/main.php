@@ -44,7 +44,7 @@ return array(
         'errorHandler'=>array(
             'errorAction'=>'site/error',
         ),
-        
+
         'log'=>array(
             'class'=>'CLogRouter',
             'routes'=>array(
@@ -70,8 +70,8 @@ return array(
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
-                'stocks/more/<link>' => 'site/stocksMore',
-                'product/<link>' => 'site/product',
+                'project/more/<link>' => 'site/projectMore',
+                'news/more/<id>' => 'site/newsmore',
                 '<action:\w+>'=>'site/<action>',
 			),
             'showScriptName' => false,

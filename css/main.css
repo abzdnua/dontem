@@ -73,20 +73,22 @@ h1
     text-transform: none;
     border-left: 1px solid #e3e3e4;
     border-right: 1px solid #e3e3e4;
-}
-.submenu a.t
-{
-    border-bottom: 1px solid #e3e3e4;
-}
-.submenu a.f
-{
-    border-top:2px solid #004075 !important;
-}
-.submenu a.s
-{
     border-top:1px solid #e3e3e4;
     border-bottom: 1px solid #e3e3e4;
 }
+.submenu a:last-child
+{
+    border-bottom: 1px solid #e3e3e4;
+}
+.submenu a:first-child
+{
+    border-top:2px solid #004075 !important;
+}
+/*.submenu a
+{
+    border-top:1px solid #e3e3e4;
+    border-bottom: 1px solid #e3e3e4;
+}*/
 .submenu a:hover
 {
     background: #f2f2f2;
@@ -809,7 +811,7 @@ h3
 }
 .w_940
 {
-    width: 940px;
+    width: 940px !important;
     margin: 0 auto;
 }
 .block_news .bt_news:hover,.block_news .bt:hover
@@ -1316,6 +1318,7 @@ b-link_type_home {
 .b-images-list_type_home .b-images-item {
     position: relative;
     height: 178px;
+    overflow: hidden;
 
 }
 
@@ -1410,6 +1413,7 @@ min-width: 100%;
 {
     border-bottom: 1px solid #e3e3e4;
     padding: 0 15px;
+    white-space: nowrap;
 }
 .bt_simp .spisok div:hover
 {

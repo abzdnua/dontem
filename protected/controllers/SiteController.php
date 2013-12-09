@@ -158,10 +158,38 @@ class SiteController extends Controller
     public function actionProject(){
         $this->render('project');
     }
-    public function actionProject_star_tes(){
+    public function actionProjectMore(){
         $this->render('project_star_tes');
     }
     public function actionProject_star_tes2(){
         $this->render('project_star_tes2');
+    }
+
+    public function actionGetNews()
+    {
+        $work_type = $_POST['work_type'];
+        $array_link = array();
+        if($work_type){
+            $array_link['type'] = $work_type;
+        }
+        if($_POST['difficulty']){
+            $array_link['difficulty'] = $_POST['difficulty'];
+        }
+        if($_POST['news_date']){
+            $news_date = explode('-',$_POST['news_date']);
+            $array_link['year'] = $news_date[0];
+            if(isset($news_date[1]))
+                $array_link['month'] = $news_date[1];
+        }
+        if($_POST['page']){
+            $array_link['page'] = $_POST['page'];
+        }
+        if($_POST['tag']){
+            $array_link['tag'] = $_POST['tag'];
+        }
+
+        $link = Yii::app()->urlManager->createUrl('site/news',$array_link);
+        // print_r($array_link);
+        $this->redirect($link);
     }
 }

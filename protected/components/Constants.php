@@ -8,29 +8,32 @@ class Constants
 
 
     const BLOCK_TYPE_TEXT = 'text';
+    const BLOCK_TYPE_TEXT_BG = 'text_bg';
     const BLOCK_TYPE_TEXT_IMG = 'text_img';
     const BLOCK_TYPE_TEXT_VIDEO = 'text_video';
     const BLOCK_TYPE_IMG_PARALLAX = 'img_parallax';
+    const BLOCK_TYPE_IMG = 'img';
     const BLOCK_TYPE_GALLERY = 'gallery';
     const LEFT_TEXT = 'left';
     const RIGHT_TEXT = 'right';
     const IMG_TYPE_PARALLAX = 'parallax';
     const IMG_TYPE_HALF_BLOCK = 'half_block';
     const IMG_TYPE_GALLERY = 'gallery_img';
+    const IMG_TYPE_FULL_WIDTH = 'full_width';
 
 
 
-    public static function getTesArray()
+    public static function getTesArray($end = 'ая')
     {
-      return array(1=>'Славянская ТЕС',
-                   2=>'Старобешевская ТЕС',
-                   3=>'Трипольская ТЕС'
+      return array(1=>"Славянск$end ТЕС",
+                   2=>"Старобешевск$end ТЕС",
+                   3=>"Трипольск$end ТЕС"
                    );
     }
 
-    public static function getTes($n)
+    public static function getTes($n,$end = 'ая')
     {
-      $tes = self::getTesArray();
+      $tes = self::getTesArray($end);
       return $tes[$n];
     }
 
@@ -38,7 +41,7 @@ class Constants
     {
       return array(1=>'Плановая',
                    2=>'Высокая',
-                   3=>'Очень высокая',
+                   3=>'Очень&nbsp;высокая',
                    4=>'Уникальная'
                    );
     }
@@ -108,18 +111,30 @@ class Constants
 
         array_push($array,$type);
 
+//весь блок
+        $type = array();
+        $type['name'] = self::IMG_TYPE_FULL_WIDTH;
+        $type['width_to'] = 980;
+        $type['height_to'] = 200;
+        $type['any_size'] = true;
+        $type['width_expect'] = 980;
+        $type['height_expect'] = 200;
+
+
+        array_push($array,$type);
+
 //в галерею
         $type = array();
         $type['name'] = self::IMG_TYPE_GALLERY;
-        $type['width_to'] = 0;
+        $type['width_to'] = 1280;
         $type['height_to'] = 720;
         $type['any_size'] = true;
         $type['width_expect'] = 0;
         $type['height_expect'] = 720;
         $type['alter_img'] = array(
                         '/size2'=>array('height_to'=>578),
-                        '/size3'=>array('height_to'=>460),
-                        '/'=>array('height_to'=>270),
+                        '/size1'=>array('height_to'=>460),
+                        '/'=>array('height_to'=>178),
                     );
 
 

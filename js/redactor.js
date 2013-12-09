@@ -15,7 +15,7 @@ function getBlock(type,elem){
     $.post('/admin/redactor/getBlock',{type:type,num:num,pos:pos},function(response){
         elem.after(response)
         if($('textarea',elem.next()).length>0){
-            $('textarea',elem.next()).ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+            $('textarea:not(.justTextarea)',elem.next()).ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
         }
         elem.next().after(elem.clone())
         console.log(response)
@@ -62,10 +62,11 @@ $('.EDITOR').each(function(){
 })
 
 
-if($('.editor_block textarea').length>0)
-    $('.editor_block textarea').ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+if($('.editor_block textarea:not(.justTextarea)').length>0)
+    $('.editor_block textarea:not(.justTextarea)').ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+
     $(document).on('click','.editor_block > .close',function(){
-        var textarea = $('textarea',$(this).parents('.editor_block'))
+        var textarea = $('textarea:not(.justTextarea)',$(this).parents('.editor_block'))
         if(textarea.length>0){
         var editor = textarea.ckeditorGet()
             editor.destroy()
@@ -100,7 +101,7 @@ if($('.editor_block textarea').length>0)
         short_des.val(short_des_editor.getData())
         $('.editor_block').each(function(i){
             console.log(i)
-            var textarea = $('textarea',$(this))
+            var textarea = $('textarea:not(.justTextarea)',$(this))
             console.log(textarea)
             if(textarea.length>0){
             console.log(textarea.offset().top)
@@ -126,6 +127,13 @@ if($('.editor_block textarea').length>0)
                 $('.videoLink',$(this)).removeClass('empty_red')
             }
 
+            if($('[name*=block_type]',$(this)).val()=='gallery'){
+                if($('[name*=gal_id]',$(this)).length == 0){
+                    $('[name*=block_type]',$(this)).addClass('empty_red')
+                }else{
+                    $('[name*=block_type]',$(this)).removeClass('empty_red')
+                }
+            }
             if($('.empty_red',$(this)).length>0){
                 $(this).css('border','1px solid #b94a48')
                 $('.error_hint',$(this)).show()
@@ -133,6 +141,8 @@ if($('.editor_block textarea').length>0)
                 $(this).css('border','1px solid #e3e3e3')
                 $('.error_hint',$(this)).hide()
             }
+
+
         })
 
 console.log($('.empty_red').length)

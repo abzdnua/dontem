@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="language" content="en" />
-    <link rel='shortcut icon' href='../img/ac_favic.ico' />
+    <link rel='shortcut icon' href='/images/favicon.ico' />
 	<!-- blueprint CSS framework -->
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
@@ -22,9 +22,10 @@
 <style>
 #header{height: 50px}
 .preloader{
-    background: url(/img/l.gif) no-repeat;
+    background: url(/images/preloader.gif) no-repeat;
     width: 30px;
     height: 30px;
+    display: none;
 }
 .clr{clear:both}
 .remove_img{
@@ -60,6 +61,10 @@
     font: 16px/20px Helvetica;
     font-weight: bold;
     display: block;
+}
+.my_label{
+    margin: 3px;
+    line-height: 24px !important;
 }
 </style>
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
