@@ -120,7 +120,7 @@ class BaseNews extends CActiveRecord
 		$criteria->compare('change_user_id',$this->change_user_id);
 		$criteria->compare('change_time',$this->change_time,true);
 		$criteria->compare('delete_denied',$this->delete_denied);
-		$criteria->compare('deleted',$this->deleted);
+		$criteria->compare('deleted',0);
 		$criteria->compare('video_des',$this->video_des,true);
 
 		return new CActiveDataProvider($this, array(
