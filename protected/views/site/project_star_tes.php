@@ -3,6 +3,8 @@
 $link = Yii::app()->request->getParam('link');
 $id = end(explode('_',$link));
 $project = Projects::model()->findByPk($id);
+if(!$project)
+    throw new ChtmlExeption(404,'not exist');
 $this->pageTitle=Yii::app()->name . ' - Энергоблок №12';
 $this->breadcrumbs=array(
     'Энергоблок №12',

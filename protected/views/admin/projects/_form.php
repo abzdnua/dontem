@@ -75,7 +75,21 @@
 		echo $form->error($model,'file_id');
 		echo $form->hiddenField($model,'file_id',array('class'=>'span5 presFileId'));
 ?>
-	<span class="about_file"></span>
+	<span class="about_file">
+   <?php
+        if($model->file_id){
+          $file = Files::model()->findByPk($model->file_id);
+          if($file and is_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$file->file_path)){
+            $size = filesize($_SERVER['DOCUMENT_ROOT'].'/files/'.$file->file_path);
+            if($size/1024>1000)
+                $size = number_format($size/1024/1000,1,',','').' mb';
+            else
+                $size =(int)($size/1024).' kb';
+            echo $file->file_path.', '.$size;
+          }
+        }
+            ?>
+  </span>
 
 
 	<div class="EDITOR">
