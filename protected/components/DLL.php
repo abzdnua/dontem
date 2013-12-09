@@ -67,7 +67,7 @@ class DLL{
 
     public static function substrText($inputStr,$substrLen = 200)
     {
-        $substrLen *=2
+        $substrLen *=2;
         $inputStr = strip_tags($inputStr);
         $inputStrLen = mb_strlen($inputStr);
         if ($inputStrLen)
