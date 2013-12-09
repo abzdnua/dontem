@@ -41,7 +41,7 @@ $this->breadcrumbs=array(
 
             <h1 style="margin-bottom: 20px;">Новости</h1>
     <div class="w_960">
-        <?php $ids = Yii::app()->db->createCommand("SELECT id FROM news WHERE deleted = 0 AND is_active = 1 ")->queryColumn();
+        <?php $ids = Yii::app()->db->createCommand("SELECT id FROM news WHERE deleted = 0 AND is_active = 1 ORDER BY news_date DESC")->queryColumn();
         foreach ($ids as $key => $arNew) {
             if($arNew==$news->id){
                 $prev_link =isset($ids[$key-1])?Yii::app()->urlManager->createUrl('site/newsmore',array('id'=>$ids[$key-1])):'';
