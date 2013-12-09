@@ -34,6 +34,7 @@ class Projects extends BaseProjects
       'file_id' => 'Файл презентации',
       'image_id' => 'Изображение',
       'is_active' => 'Отображать?',
+      'show_on_main' => 'Выводить на главной',
     );
   }
 }

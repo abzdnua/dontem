@@ -21,6 +21,7 @@
  * @property integer $deleted
  * @property string $project_name
  * @property string $video_des
+ * @property integer $show_on_main
  */
 class BaseProjects extends CActiveRecord
 {
@@ -40,13 +41,13 @@ class BaseProjects extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, sub_title, tes_id, short_des, image_id', 'required'),
-			array('tes_id, file_id, image_id, is_active, create_user_id, change_user_id, delete_denied, deleted', 'numerical', 'integerOnly'=>true),
+			array('title, sub_title, tes_id, short_des, project_name, image_id', 'required'),
+			array('tes_id, file_id, image_id, is_active, create_user_id, change_user_id, delete_denied, deleted, show_on_main', 'numerical', 'integerOnly'=>true),
 			array('title, sub_title, video_link, project_name, video_des', 'length', 'max'=>250),
 			array('create_time, change_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, sub_title, tes_id, short_des, video_link, file_id, image_id, is_active, create_user_id, create_time, change_user_id, change_time, delete_denied, deleted, project_name, video_des', 'safe', 'on'=>'search'),
+			array('id, title, sub_title, tes_id, short_des, video_link, file_id, image_id, is_active, create_user_id, create_time, change_user_id, change_time, delete_denied, deleted, project_name, video_des, show_on_main', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,6 +85,7 @@ class BaseProjects extends CActiveRecord
 			'deleted' => 'Deleted',
 			'project_name' => 'Project Name',
 			'video_des' => 'Video Des',
+			'show_on_main' => 'Show On Main',
 		);
 	}
 
@@ -119,9 +121,10 @@ class BaseProjects extends CActiveRecord
 		$criteria->compare('change_user_id',$this->change_user_id);
 		$criteria->compare('change_time',$this->change_time,true);
 		$criteria->compare('delete_denied',$this->delete_denied);
-		$criteria->compare('deleted',$this->deleted);
+		$criteria->compare('deleted',0);
 		$criteria->compare('project_name',$this->project_name,true);
 		$criteria->compare('video_des',$this->video_des,true);
+		$criteria->compare('show_on_main',$this->show_on_main);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
