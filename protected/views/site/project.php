@@ -14,10 +14,10 @@ $this->breadcrumbs=array(
     <div class="w_940">
         <?php $tes = Yii::app()->db->createCommand("SELECT DISTINCT(tes_id) FROM projects WHERE deleted = 0 AND is_active = 1")->queryColumn();
             if(isset($tes[$tes_id])){
-                $prev['id'] = $tes_id ;
-                $prev['name'] = Constants::getTes($tes[$prev['id']]);
+                $prev['id'] = $tes[$tes_id];
+                $prev['name'] = Constants::getTes($tes[$tes_id]);
             }else{
-                $prev['id'] = count($tes);
+                $prev['id'] = end($tes);
                 $prev['name'] = Constants::getTes(end($tes));
             }
 
@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
                 $next['id'] = $tes_id + 2;
                 $next['name'] = Constants::getTes($tes[$next['id']]);
             }else{
-                $next['id'] = 1;
+                $next['id'] = $tes[0];
                 $next['name'] = Constants::getTes($tes[0]);
             }
          ?>
