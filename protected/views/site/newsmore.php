@@ -3,7 +3,7 @@
 $id = Yii::app()->request->getParam('id');
 $news = News::model()->findByPk($id);
 if(!$news)
-    throw new ChtmlExeption(404,'not exist');
+    throw new CHttpException(404,'The requested page does not exist.');
 $this->pageTitle=Yii::app()->name . ' - '.$news->title ;
 $this->breadcrumbs=array(
     'Новости',
