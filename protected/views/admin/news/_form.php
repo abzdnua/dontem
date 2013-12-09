@@ -214,9 +214,12 @@ $this->widget(
                 array('label'=>'Блок: текст', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT.'",$(this));return false')
 
               ),
-                // array('label'=>'Блок: текст (c фоном)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_BG.'",$(this));return false')
+                array('label'=>'Блок: текст (c фоном)', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_BG.'",$(this));return false')
 
-              // ),
+              ),
+                 array('label'=>'Блок: изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_IMG.'",$(this));return false')
+
+              ),
                 // array('label'=>'Блок: текст+изображение', 'url'=>'javascript:void(0)','linkOptions'=>array('onclick'=>'getBlock("'.Constants::BLOCK_TYPE_TEXT_IMG.'",$(this));return false')
 
                 // ),
@@ -244,6 +247,10 @@ if(!$model->isNewRecord){
 
         case Constants::BLOCK_TYPE_TEXT_BG:
           $this->renderPartial('/admin/redactor/_text',array('id'=>$value->id,'num'=>$key+1,'background'=>true));
+          break;
+
+        case Constants::BLOCK_TYPE_IMG:
+          $this->renderPartial('/admin/redactor/_img',array('id'=>$value->id,'num'=>$key+1));
           break;
 
         case Constants::BLOCK_TYPE_IMG_PARALLAX:
