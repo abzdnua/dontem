@@ -48,6 +48,7 @@ $block->block_type = Constants::BLOCK_TYPE_GALLERY;
 </div>
 
 <div class="clearfix"></div>
+<div class="error_hint" style="display:none">Необходимо загрузить минимум 1 фото</div>
 
 <div class="pull-right">
 <?php echo CHtml::activeLabelEx($block, 'order' ); ?>

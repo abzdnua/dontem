@@ -16,7 +16,7 @@ $block->block_type = Constants::BLOCK_TYPE_IMG;
 
 <?php echo CHtml::activeHiddenField($block, "[$num]block_type"); ?>
 
-<div class="clearfix"></div>
+
 <?php echo CHtml::activeLabelEx($block, 'title' ); ?>
 <?php echo CHtml::activeTextField($block, "[$num]title", array('class'=>'span5')); ?><br>
 <?php echo CHtml::fileField('image[]', '',array('class'=>'upload')); ?>
@@ -33,6 +33,8 @@ if($show_img){
 }
  ?>
 </div>
+<div class="clearfix"></div>
+<div class="error_hint" style="display:none">Изображение должно быть загружено</div>
 <div class="pull-right">
 <?php echo CHtml::activeLabelEx($block, 'order' ); ?>
 <?php
