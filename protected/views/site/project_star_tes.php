@@ -49,13 +49,14 @@ $this->breadcrumbs=array(
 
            <div class="top_block">
 
-                     <h2><?php echo $project->title ?> </h2>
+                     <h2><span><span style="display: block;max-height: 60px;overflow: hidden;"><?php echo $project->title ?> </span></span></h2>
 
               </div>
         <div class="white_block">
             <div class="clear" style="padding-top: 15px"></div>
             <div class="blue_block">
-                <?php echo $project->sub_title ?>
+                <span style="display: inline-block;height: 52px;overflow: hidden;">
+                <?php echo $project->sub_title ?></span>
             </div>
             <div class="top">
                 <div class="clr" style="margin-bottom: 25px;"></div>

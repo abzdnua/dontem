@@ -145,6 +145,8 @@ h1
     font: 20px/24px 'open sans';
     font-style: italic;
     padding-top: 10px;
+    padding: 10px;
+    padding-bottom: 0;
 }
 .block_phone
  {
@@ -697,7 +699,7 @@ h3
 .block_news .text_move
 {
     position: absolute;
-    top: 300px;
+    top: 260px;
    /* top: 0px !important;*/
     background: url("../images/bg_news_block.png") left top repeat;
     height: 370px;
@@ -710,8 +712,15 @@ h3
 }
 .block_news .date_news
 {
-    font:14px/20px 'open sans' ;
-    color: #737477;
+    font: bold 14px/20px 'open sans';
+    color: #666666;
+    background: rgba(255, 255, 255, 0.6);
+    margin-left: -13px;
+    padding-left: 10px;
+    margin-top: -7px;
+    padding: 8px;
+    padding-right: 19px;
+    width: 271px;
 }
 .block_news .short_des
 {
@@ -1218,6 +1227,7 @@ h3
 {
     font-weight: bold !important;
     font-size: 24px;
+    padding: 0 20px;
 }
 .page_project_more .blue_block
 {
@@ -1230,7 +1240,7 @@ h3
     color: #4a4b4c;
     max-width: 490px;
     margin-bottom: 20px;
-    min-height: 192px;
+    /*min-height: 192px;*/
 }
 .page_project_more .white_block .f_l,.page_project_more .white_block .f_r
 {
@@ -1267,7 +1277,7 @@ h3
     -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-    margin-top: 40px;
+   /* margin-top: 40px;*/
 }
 #iview .bottom_text
 {

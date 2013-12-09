@@ -64,7 +64,7 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
     $(this).find('.text_move').stop().animate({top:0},300)
 }).on('mouseleave touchend','.block_news ul li',function(){
 
-        $(this).find('.text_move').stop().animate({top:300},300)
+        $(this).find('.text_move').stop().animate({top:260},300)
     }).on('mouseenter touchend','.page_project .project_block',function(){
         $(this).find('.hover_border').removeClass('display_none')
     }).on('mouseleave touchend','.page_project .project_block',function(){
