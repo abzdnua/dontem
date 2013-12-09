@@ -15,7 +15,7 @@ function getBlock(type,elem){
     $.post('/admin/redactor/getBlock',{type:type,num:num,pos:pos},function(response){
         elem.after(response)
         if($('textarea',elem.next()).length>0){
-            $('textarea',elem.next()).ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+            $('textarea:not(.justTextarea)',elem.next()).ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
         }
         elem.next().after(elem.clone())
         console.log(response)
@@ -62,8 +62,9 @@ $('.EDITOR').each(function(){
 })
 
 
-if($('.editor_block textarea').length>0)
-    $('.editor_block textarea').ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+if($('.editor_block textarea:not(.justTextarea)').length>0)
+    $('.editor_block textarea:not(.justTextarea)').ckeditor({toolbar:[["Bold","Italic"],["Link","Unlink"],["BulletedList"]],height:'400',resize_enabled:false})
+
     $(document).on('click','.editor_block > .close',function(){
         var textarea = $('textarea',$(this).parents('.editor_block'))
         if(textarea.length>0){
