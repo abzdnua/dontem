@@ -11,7 +11,7 @@
               <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                   <div class="b-images-item__wrap">
                       <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem" >
-                        <img alt="" class='gal width-h-p b-images-item__preview' data-db="<?php echo $block_id ?>"  data-ajax="true" data-description="dasfsg" data-current="<?php echo $key ?>" data-folder="/files/gallery/" src="/files/gallery/<?php echo $img->md5_name.'_'.$img->id.'.jpg' ?>"/>
+                        <img alt="" class='gal width-h-p b-images-item__preview' data-db="<?php echo $block_id ?>"  data-ajax="true" data-description="dasfsg" data-current="<?php echo $key ?>" data-folder="/files/gallery/" src="/files/gallery/<?php echo $img->md5_name.'_'.$img->id.'.jpg' ?>" style="height:178px"/>
                           <!-- <img class="b-images-item__preview" alt="" src="../images/news/photo/start_tes/news_03.png" /> -->
                       </div>
                   </div>
