@@ -811,7 +811,7 @@ h3
 }
 .w_940
 {
-    width: 940px;
+    width: 940px !important;
     margin: 0 auto;
 }
 .block_news .bt_news:hover,.block_news .bt:hover
