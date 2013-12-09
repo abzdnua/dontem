@@ -13,6 +13,7 @@ class News extends BaseNews
             $this->change_user_id = Yii::app()->user->getId();
         }
         $this->news_date = date('Y-m-d',strtotime($this->news_date));
+        // $this->work_type = base64_encode($this->work_type);
         return parent::beforeSave();
 
     }
