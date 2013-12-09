@@ -14,7 +14,7 @@ $this->pageTitle=Yii::app()->name;
 <script>
     $(document).ready(function(){
         $('#iview').iView({
-            pauseTime: 7000,
+            pauseTime: 15000,
             directionNav: false,
             controlNav: true,
             tooltipY: -15
