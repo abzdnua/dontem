@@ -105,9 +105,14 @@ $this->breadcrumbs=array(
                             <span class="left">Плановая</span><span class="right">Уникальная</span>
                         </div>
                         <div class="clr" ></div>
-                        <?php if($news->file_id){?>
-                        <a href="" class=" href d_present">Скачать презентацию</a>
-                        <?}?>
+                        <?php if($news->file_id){
+                            $file = Files::model()->findByPk($news->file_id);
+                            if($file and is_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$file->file_path)){
+                            ?>
+                        <a href="/files/<?php echo $file->file_path ?>" class=" href d_present">Скачать презентацию</a>
+                        <?}
+                    }
+                        ?>
                 </div>
                 <div class="f_r w_280_200">
                     <object width="280" height="200"><param name="movie" value="<?php echo $news->video_link ?>?hl=ru_RU&amp;version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<?php echo $news->video_link ?>?hl=ru_RU&amp;version=3" type="application/x-shockwave-flash" width="280" height="200" allowscriptaccess="always" allowfullscreen="true"></embed></object>

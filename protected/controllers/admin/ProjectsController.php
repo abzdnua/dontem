@@ -74,6 +74,12 @@ class ProjectsController extends Controller
 				$newImg->used = 1;
 				$newImg->save(false);
 
+				if($model->file_id){
+					$newFile = Files::model()->findByPk($model->file_id);
+					$newFile->used = 1;
+					$newFile->save(false);
+				}
+
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);
 
@@ -105,11 +111,23 @@ class ProjectsController extends Controller
 			$oldImg->used = 0;
 			$oldImg->save(false);
 
+			if($model->file_id){
+				$oldFile = Files::model()->findByPk($model->file_id);
+				$oldFile->used = 0;
+				$oldFile->save(false);
+			}
+
 			$model->attributes=$_POST['Projects'];
 			if($model->save()){
 				$newImg = Files::model()->findByPk($model->image_id);
 				$newImg->used = 1;
 				$newImg->save(false);
+
+				if($model->file_id){
+					$newFile = Files::model()->findByPk($model->file_id);
+					$newFile->used = 1;
+					$newFile->save(false);
+				}
 
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);

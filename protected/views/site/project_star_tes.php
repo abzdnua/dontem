@@ -62,9 +62,14 @@ $this->breadcrumbs=array(
                             <?php echo $project->short_des ?>
                         </div>
                         <div class="clr" ></div>
-                        <?php if($project->file_id){?>
-                        <a href="" class=" href d_present">Скачать презентацию</a>
-                        <?}?>
+                        <?php if($project->file_id){
+                            $file = Files::model()->findByPk($project->file_id);
+                            if($file and is_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$file->file_path)){
+                            ?>
+                        <a href="/files/<?php echo $file->file_path ?>" class=" href d_present">Скачать презентацию</a>
+                        <?}
+                    }
+                        ?>
                 </div>
                 <?php if($project->video_link){?>
                 <div class="f_r w_280_200" >

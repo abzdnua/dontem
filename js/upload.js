@@ -145,7 +145,7 @@ $(document).ready(function(){
         $(this).parents('form').ajaxSubmit(data)
         return false
     }).on('click','.remove_img',function(){
-   
+
         if(confirm('Вы действительно желаете удалить данное фото?'))
         {
             $(this).parent().remove()
@@ -154,5 +154,51 @@ $(document).ready(function(){
         {
             return false
         }
+    }).on('change','.uploadFile',function(){
+        var th = $(this)
+        $('input[type=file]').attr('disabled',true)
+        $('[name=md5_name]').attr('disabled',true)
+        $('[name=img_type]').attr('disabled',true)
+        th.removeAttr('disabled')
+        th.siblings('[name=md5_name]').removeAttr('disabled')
+        th.siblings('[name=img_type]').removeAttr('disabled')
+        if (th.val()=='') return false;
+        $('input[type=file]',th.parents('form')).attr('disabled',true)
+        $('input[name=img_type]').attr('disabled',true)
+        th.siblings('input[name=img_type]').removeAttr('disabled')
+        th.attr('disabled',false)
+        var data = {
+            url: '/admin/files/uploadFile',
+            beforeSubmit: function(jqForm){
+//                $(this).attr('disabled','disabled')
+                console.log(jqForm)
+                th.siblings('.preloader').show()
+            },
+            success: function(responseText){
+                console.log(responseText)
+                data = $.parseJSON(responseText)
+                console.log(data)
+                if(data['err'].length==0){
+                    th.siblings('.presFileId').val(data['success']['id'])
+                    th.siblings('.about_file').html(data['success']['fileName']+', '+data['success']['size']).show()
+
+                th.val('')
+                $('input[type=file]').removeAttr('disabled')
+                }else{
+                    th.notify(data['err']['err_msg'])
+                    $('input[type=file]').removeAttr('disabled')
+                    $('[name=md5_name]').removeAttr('disabled')
+                    $('[name=img_type]').removeAttr('disabled')
+                    th.val('')
+                }
+                th.siblings('.preloader').hide()
+                th.clearInputs();
+                $('input[type=file]',th.parents('form')).attr('disabled',false)
+                th.siblings('input[name=img_type]').removeAttr('disabled')
+            }
+        }
+        $('[name=field_name]').val(th.attr('name'))
+        th.parents('form').ajaxSubmit(data)
+        return false
     })
 })

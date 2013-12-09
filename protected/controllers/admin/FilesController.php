@@ -232,5 +232,32 @@ class FilesController extends Controller
         return array('fileName'=>$path,'gal_id'=>$blockGal->id);
     }
 
+    public function actionUploadFile()
+    {
+        if(isset($_FILES['file']))
+        {
+            $file = new Upload($_FILES['file']['tmp_name']);
+            $ext = end(explode('.',$_FILES['file']['name']));
+            if( $ext !='ppt' and $ext !='pptx'){
+                echo json_encode(array('err'=>array('err_msg'=>'Можно загружать только файлы презентации')));
+                Yii::app()->end();
+            }
+            $size = filesize($_FILES['file']['tmp_name']);
+            if($size/1024>1000)
+                $size = number_format($size/1024/1000,1,',','').' mb';
+            else
+                $size =(int)($size/1024).' kb';
+            $uniq = uniqid();
+            $file->file_new_name_body = $uniq;
+            $file->file_new_name_ext = $ext;
+            $file->process($_SERVER['DOCUMENT_ROOT'].'/files/');
+            $dbFile = new Files;
+            $dbFile->file_path = $uniq.'.'.$ext;
+            $dbFile->used = 0;
+            $dbFile->save();
+            echo json_encode(array('err'=>array(),'success'=>array('id'=>$dbFile->id,'fileName'=>$uniq.'.'.$ext,'size'=>$size)));
+        }
+    }
+
 
 }

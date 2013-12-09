@@ -73,6 +73,13 @@ class NewsController extends Controller
 				$newImg = Files::model()->findByPk($model->image_id);
 				$newImg->used = 1;
 				$newImg->save(false);
+
+				if($model->file_id){
+					$newFile = Files::model()->findByPk($model->file_id);
+					$newFile->used = 1;
+					$newFile->save(false);
+				}
+
 				$this->saveTags($_POST,$model->id);
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);
@@ -103,12 +110,23 @@ class NewsController extends Controller
 			$oldImg = Files::model()->findByPk($model->image_id);
 			$oldImg->used = 0;
 			$oldImg->save(false);
+			if($model->file_id){
+				$oldFile = Files::model()->findByPk($model->file_id);
+				$oldFile->used = 0;
+				$oldFile->save(false);
+			}
 
 			$model->attributes=$_POST['News'];
 			if($model->save()){
 				$newImg = Files::model()->findByPk($model->image_id);
 				$newImg->used = 1;
 				$newImg->save(false);
+
+				if($model->file_id){
+					$newFile = Files::model()->findByPk($model->file_id);
+					$newFile->used = 1;
+					$newFile->save(false);
+				}
 				$this->saveTags($_POST,$model->id);
 				require_once($_SERVER['DOCUMENT_ROOT'].'/protected/controllers/admin/RedactorController.php');
 				RedactorController::saveBlocks($_POST,$model);

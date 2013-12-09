@@ -73,7 +73,7 @@
 
 	<?
 		echo $form->error($model,'file_id');
-		echo $form->hiddenField($model,'file_id',array('class'=>'span5 fileId'));
+		echo $form->hiddenField($model,'file_id',array('class'=>'span5 presFileId'));
 ?>
 	<span class="about_file"></span>
 
