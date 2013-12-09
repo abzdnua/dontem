@@ -15,7 +15,7 @@
 
 	<?php echo $form->textFieldRow($model,'title',array('class'=>'span7','maxlength'=>250)); ?>
 
-	<?php echo $form->textAreaRow($model,'sub_title',array('class'=>'span7','maxlength'=>250)); ?>
+	<?php echo $form->textAreaRow($model,'sub_title',array('class'=>'span7','maxlength'=>160)); ?>
 
 	<?php
 		echo $form->labelEx($model,'image_id');
