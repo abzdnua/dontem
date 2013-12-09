@@ -14,7 +14,7 @@ class GalleryController extends Controller
                 $i = 0;
                 foreach ($q as $key => $row) {
                      $elements .= '"'.$row['md5_name'].'_'.$row['id'].'.jpg'.'"';
-                    if ($i+1!=count($arr)) $elements .= ",";
+                    if ($i+1!=count($q)) $elements .= ",";
                     $i++;
                 }
                 // foreach($arr as $i=>$v)
