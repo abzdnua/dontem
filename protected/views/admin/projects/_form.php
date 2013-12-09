@@ -11,7 +11,7 @@
 
   <?php echo $form->checkBoxRow($model,'show_on_main'); ?>
 
-	<?php echo $form->textFieldRow($model,'project_name',array('class'=>'span7','maxlength'=>80)); ?>
+	<?php echo $form->textFieldRow($model,'project_name',array('class'=>'span7','maxlength'=>250)); ?>
 
 	<?php echo $form->textFieldRow($model,'title',array('class'=>'span7','maxlength'=>250)); ?>
 
