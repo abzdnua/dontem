@@ -27,7 +27,7 @@ else
 <div class="clearfix"></div>
 <?php
 if(isset($background)){
-    echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'2','maxlength'=>160,'class'=>'justTextarea'));
+    echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'2','maxlength'=>180,'class'=>'justTextarea'));
 }else{
     echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'30'));
 }
