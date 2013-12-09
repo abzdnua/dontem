@@ -101,7 +101,7 @@ if($('.editor_block textarea:not(.justTextarea)').length>0)
         short_des.val(short_des_editor.getData())
         $('.editor_block').each(function(i){
             console.log(i)
-            var textarea = $('textarea',$(this))
+            var textarea = $('textarea:not(.justTextarea)',$(this))
             console.log(textarea)
             if(textarea.length>0){
             console.log(textarea.offset().top)
