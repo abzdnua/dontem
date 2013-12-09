@@ -749,7 +749,7 @@ h3
 }
 .block_news span.type
 {
-    font:bold 14px/20px 'open sans';
+    font:bold 14px/18px 'open sans';
     color: #004075;
     text-transform: uppercase;
 
@@ -811,7 +811,7 @@ h3
 .block_news .before_type
 {
     max-height: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     overflow: hidden;
 }
 .block_news .bt_news
@@ -1293,7 +1293,8 @@ h3
     -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-   /* margin-top: 40px;*/
+    margin-top: 15px;
+    margin-bottom: 40px;
 }
 #iview .bottom_text
 {

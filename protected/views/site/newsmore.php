@@ -54,6 +54,9 @@ $this->breadcrumbs=array(
         <?php if($next_link){?>
         <a class="bt_simp next" href="<?php echo $next_link ?>">Следующая  <span class="arrow_right_button"></span></a>
         <?}?>
+
+        <a class="bt_simp prev no_mar_left" style="float: right;" href="/news">Все новости <span class="arrow_left_button"></span> </a>
+
     </div>
 
 </div>
