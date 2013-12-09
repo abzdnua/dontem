@@ -26,7 +26,11 @@ else
 
 <div class="clearfix"></div>
 <?php
-echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'30'));
+if(isset($background)){
+    echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'2','maxlength'=>160,'class'=>'justTextarea'));
+}else{
+    echo CHtml::activeTextArea($text, "[$num]content",array('style'=>'width:100%','rows'=>'30'));
+}
 ?>
 <div class="error_hint" style="display:none">Текст редактора не может быть пустым</div>
 
