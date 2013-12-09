@@ -23,6 +23,8 @@ $this->pageTitle=Yii::app()->name;
         $(document).on('click','.change_tag',function(){
             $('input[name=tag]').val($(this).text())
             $('form').submit()
+        }).on('click','.iviewSlider',function(){
+            console.log('a:visible',$(this)).attr('href')
         })
 
     });
