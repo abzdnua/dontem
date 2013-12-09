@@ -223,7 +223,7 @@ class NewsController extends Controller
 			}
 			foreach ($postTags as $key => $postTag) {
 				$tag = new Tags;
-				$tag->tag = $postTag;
+				$tag->tag = trim($postTag);
 				$tag->save();
 				$nAt[] = $tag->id;
 			}

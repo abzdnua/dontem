@@ -16,6 +16,29 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 
 	<?php echo $form->textFieldRow($model,'title',array('class'=>'span7','maxlength'=>250)); ?>
 
+  <?php
+  if($model->isNewRecord)
+    $model->news_date = date('d.m.Y');
+  else
+    $model->news_date = date('d.m.Y',strtotime($model->news_date));
+   ?>
+<?php echo $form->labelEx($model,'news_date'); ?>
+
+<?php $this->widget('bootstrap.widgets.TbDatePicker', array(
+  'model'=>$model,
+    'attribute'=>'news_date',
+    // additional javascript options for the date picker plugin
+    'options'=>array(
+        'language'=>'ru',
+    'format'=>'dd.mm.yyyy',
+    ),
+    'htmlOptions'=>array(
+      'class'=>'span5',
+        'style'=>'height:20px;'
+    ),
+)); ?>
+<?php echo $form->error($model,'news_date') ?>
+
 	<?php
 		echo $form->labelEx($model,'image_id');
         echo CHtml::fileField('image[]', '',array('class'=>'upload'));?>
