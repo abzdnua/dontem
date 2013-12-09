@@ -1179,6 +1179,7 @@ h3
     text-decoration: none !important;
     color: white !important;
     padding: 0 19px;
+    overflow: hidden;
 }
 .page_project .top_text
 {
