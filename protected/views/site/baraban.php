@@ -45,7 +45,7 @@ $this->breadcrumbs=array(
             {
                 $('.paralax_baraban.s img').css('top',-scrolled+'px');
             }
-            if((scrolled)>1200 )
+            if((scrolled)>1190 )
             {
                 $('.paralax_baraban.s img').css('top',-400+'px');
             }
