@@ -147,6 +147,20 @@ h1
     padding-top: 10px;
     padding: 10px;
     padding-bottom: 0;
+    display: table;
+    width: 958px;
+    padding-top: 0;
+    height: 70px;
+
+
+
+}
+.blue_block div
+{
+    display: table-cell;
+    max-height: 52px;
+    overflow: hidden;
+    vertical-align: middle;
 }
 .block_phone
  {
