@@ -22,9 +22,10 @@
 <style>
 #header{height: 50px}
 .preloader{
-    background: url(/img/l.gif) no-repeat;
+    background: url(/images/preloader.gif) no-repeat;
     width: 30px;
     height: 30px;
+    display: none;
 }
 .clr{clear:both}
 .remove_img{

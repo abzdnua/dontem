@@ -6,7 +6,7 @@ class GalleryController extends Controller
     {
         if(isset($_POST['db']) AND !empty($_POST['db']))
         {
-            $sql="SELECT * FROM block_gallery WHERE block_id=".$_POST['db']." ORDER BY id DESC";
+            $sql="SELECT * FROM block_gallery WHERE block_id=".$_POST['db'];
             $q = Yii::app()->db->createCommand($sql)->queryAll();
             $elements='[';
             if(count($q)>0)

@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
             }
 
             if(isset($tes[$tes_id+2])){
-                $next['id'] = $tes_id + 2;
+                $next['id'] = $tes[$tes_id+2];
                 $next['name'] = Constants::getTes($tes[$next['id']]);
             }else{
                 $next['id'] = $tes[0];

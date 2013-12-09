@@ -126,6 +126,13 @@ if($('.editor_block textarea').length>0)
                 $('.videoLink',$(this)).removeClass('empty_red')
             }
 
+            if($('[name*=block_type]',$(this)).val()=='gallery'){
+                if($('[name*=gal_id]',$(this)).length == 0){
+                    $('[name*=block_type]',$(this)).addClass('empty_red')
+                }else{
+                    $('[name*=block_type]',$(this)).removeClass('empty_red')
+                }
+            }
             if($('.empty_red',$(this)).length>0){
                 $(this).css('border','1px solid #b94a48')
                 $('.error_hint',$(this)).show()
@@ -133,6 +140,8 @@ if($('.editor_block textarea').length>0)
                 $(this).css('border','1px solid #e3e3e3')
                 $('.error_hint',$(this)).hide()
             }
+
+
         })
 
 console.log($('.empty_red').length)

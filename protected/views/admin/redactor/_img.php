@@ -20,7 +20,7 @@ $block->block_type = Constants::BLOCK_TYPE_IMG;
 <?php echo CHtml::activeLabelEx($block, 'title' ); ?>
 <?php echo CHtml::activeTextField($block, "[$num]title", array('class'=>'span5')); ?><br>
 <?php echo CHtml::fileField('image[]', '',array('class'=>'upload')); ?>
-<small class="help-block">Изображение размером не менее 980рх по ширине и 200рх по высоте</small>
+<div class="preloader"></div><small class="help-block">Изображение размером не менее 980рх по ширине и 200рх по высоте</small>
 <?php echo CHtml::hiddenField('img_type', Constants::IMG_TYPE_FULL_WIDTH ); ?>
 <?php echo CHtml::activeHiddenField($img, "[$num]file_id",array('class'=>'fileId')); ?>
 <div class="preview">
