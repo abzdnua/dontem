@@ -76,10 +76,10 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
 
 
         event.stopPropagation();
-    }).on('mouseenter touchend','.block_news ul li',function(){
+    }).on('mouseenter touchstart','.block_news ul li',function(){
 
     $(this).find('.text_move').stop().animate({top:0},300)
-}).on('mouseleave touchend','.block_news ul li',function(){
+}).on('mouseleave touchstart','.block_news ul li',function(){
 
         $(this).find('.text_move').stop().animate({top:260},300)
     }).on('mouseenter touchend','.page_project .project_block',function(){
