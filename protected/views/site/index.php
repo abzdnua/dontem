@@ -43,7 +43,7 @@ $this->pageTitle=Yii::app()->name;
                               }
                           }
                         ?>
-            <div href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
+            <div onclick="location.href='<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>'"  href="" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
                 <a class="iview-caption" data-x="0" data-y="0" style="width:900px;height:370px" href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>">                                   </a>
                 <?php
                 $str = $project->project_name;
