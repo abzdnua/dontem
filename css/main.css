@@ -869,7 +869,7 @@ h3
     margin-bottom: 2px;
     overflow: hidden;
 }
-.block_news .bt_news
+.block_news .bt_news,.bt_news_more
 {
     display: block;
     float: left;
@@ -893,7 +893,7 @@ h3
     width: 940px !important;
     margin: 0 auto;
 }
-.block_news .bt_news:hover,.block_news .bt:hover
+.block_news .bt_news:hover,.block_news .bt:hover,.bt_news_more:hover
 {
     text-decoration: none;
     background-position: left bottom;

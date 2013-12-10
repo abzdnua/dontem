@@ -94,7 +94,7 @@ $this->breadcrumbs=array(
                 <div class="clr"></div>
             </div>
 
-            <div class="clr" style="margin-top: 25px;"></div>
+            <div class="clr" ></div>
             <?php
                 $blocks = Blocks::model()->findAll('parent_table = "'.$project->tableName().'" AND parent_id = '.$project->id.' ORDER BY `order` ASC');
                 if ($blocks){

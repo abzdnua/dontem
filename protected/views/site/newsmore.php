@@ -114,7 +114,7 @@ $this->breadcrumbs=array(
                             <input type="hidden" name="tag"/>
                             <div class="block_href">
                                 <?php foreach ($tags as $tag) {
-                                echo "<a class='bt_news change_tag' >$tag</a>";
+                                echo "<a class='bt_news_more ' >$tag</a>";
 
                                 } ?>
                               <div class="clr"></div>
