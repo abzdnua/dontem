@@ -63,7 +63,7 @@ $this->breadcrumbs=array(
             <div class="clear" style="padding-top: 15px"></div>
             <div class="blue_block">
                 <div>
-        <span style="display: inline-block;max-height: 52px;overflow: hidden;">
+        <span style="display: inline-block;overflow: hidden;">
                 <?php echo $project->sub_title ?></span>
                 </div>
             </div>
