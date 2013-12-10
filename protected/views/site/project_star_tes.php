@@ -14,9 +14,7 @@ $this->breadcrumbs=array(
     $(function() {
         $('.pictures').gpGallery('img');
     })
-    $(document).ready(function(){
-        alert($('.blue_block').css)
-    })
+
 </script>
 
 
