@@ -1354,6 +1354,10 @@ h3
     margin-top: 30px;
     margin-bottom: 30px;
 }
+.img_all_page_width
+{
+    overflow: hidden;
+}
 #iview .bottom_text
 {
     position: relative;
