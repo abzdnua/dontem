@@ -536,6 +536,7 @@ h2
     background: white;
     border: 1px solid #ececec;
     border-top:none;
+    margin-top: -2px;
 }
 .page_about .block_w_b
 {
