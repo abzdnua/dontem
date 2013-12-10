@@ -66,6 +66,7 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         console.log(first_click)
       if ( first_click ==1)
       {
+          first_click = 0
          return
       }
         if ( first_click ==2)
