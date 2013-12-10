@@ -67,7 +67,7 @@ $this->breadcrumbs=array(
                 </div>
             </div>
             <div class="top">
-                <div class="clr" style="margin-bottom: 25px;"></div>
+                <div class="clr" style="margin-bottom: 19px;"></div>
                 <div class="f_l" >
                         <div class="text <?php echo ($project->video_link)?'':'only_text' ?>" >
                             <?php echo $project->short_des ?>
