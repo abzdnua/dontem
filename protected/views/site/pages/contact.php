@@ -11,7 +11,7 @@ $this->breadcrumbs=array(
 <div class="w_980">
 
             <h1>Наши контакты</h1>
-            <div class="blue_block">
+            <div class="blue_block" style="padding-top: 10px;height: 60px;">
                 ООО ”Донбасстеплоэлектромонтаж” - ремонтные и реконструкционные работы любой <br/> категории сложности на тепловых электростанциях
             </div>
 

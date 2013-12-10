@@ -81,7 +81,7 @@ $this->breadcrumbs=array(
 
 
     <div class="block">
-        <div class="title"><span></span><p>- динамика</p></div>
+        <div class="title" style="margin-top: 88px;"><span></span><p>- динамика</p></div>
         <div class="text">ООО «ДОНТЭМ» – молодое, динамично развивающееся предприятие. Но наши ведущие технические специалисты работают в энергетике уже не один десяток лет.</div>
         <img src="../images/princip1.png"/>
     </div>

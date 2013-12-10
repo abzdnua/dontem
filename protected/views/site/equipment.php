@@ -36,13 +36,15 @@ $(document).ready(function(){
                 </div>
     <div class="clr"></div>
                 <div class="f_l">
-                    <img src="../images/equipment/equip_09.png"/>
-                    <p>Экскаватор-бетонолом JCB 3Х</p>
+                    <img src="../images/equipment/equipJCB3CХ.png"/>
+                    <!--img src="../images/equipment/equip_09.png"/-->
 
+                    <p>Экскаватор-погрузчик JCB 3CX</p><br/>
+                    <span>c комплектом навесного оборудования» </span>
                 </div>
                 <div class="f_r">
                     <img src="../images/equipment/equip_10.png"/>
-                    <p>Мини-погрузчик JCB 256 с комплектом<br/> навесного оборудования</p>
+                    <p>Мини-погрузчик JCB 225</p>
 
                 </div>
     <div class="clr"></div>
@@ -65,23 +67,30 @@ $(document).ready(function(){
                 </div>
                 <div class="f_r">
                     <img src="../images/equipment/equip_20.png"/>
-                    <p>Экскаватор гусеничный Caterpillar C3360</p><br/>
-                        <span>с навесными гидроножницами</span>
-
+                    <p>Экскаваторы гусеничные гидравлические <br/>Caterpillar 336DL и Caterpillar 329DL</p><br/>
+                        <span>с комплектом навесного оборудования <br/>(гидроножницы и гидромолот)</span>
                 </div>
     <div class="clr"></div>
-                <div class="f_l">
+                <!--div class="f_l">
                     <img src="../images/equipment/equip_24.png"/>
                     <p>Экскаватор гусеничный Caterpillar C3360 </p><br/>
                     <span> с навесными гидромолотом</span>
 
-                </div>
-                <div class="f_r">
+                </div-->
+                <div class="f_l">
                     <img src="../images/equipment/equip_25.png"/>
                     <p>Щековая дробильная установка Powerscreen <br/>Metrotrak HA</p>
 
 
                 </div>
+
+
+            <div class="f_r">
+                <img src="../images/equipment/equip938H.png"/>
+                <p>Фронтальный погрузчик Caterpillar 938H</p>
+
+
+            </div>
     <div class="clr"></div>
     <h2 style="margin-top: -20px;">Индукционный нагрев</h2>
     <div class="clr"></div>
