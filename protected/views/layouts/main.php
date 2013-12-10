@@ -52,10 +52,11 @@
 
 <!--a href="<?=Yii::app()->urlManager->createUrl('site/delivery_and_payment')?>">Доставка и оплата</a-->
 <script>
+    var istouch=(!!('ontouchstart' in window))?'touchstart':'click';
 $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         $(this).children().css({display:'block'})
     $(this).addClass('active')
-    }).on('mouseleave touchstart','.menu ul li.sub',function(){
+    }).on('mouseleave ','.menu ul li.sub',function(){
         $(this).children().css({display:'none'})
         $(this).removeClass('active')
     }).on('mouseenter touchend','.block_news ul li',function(){
