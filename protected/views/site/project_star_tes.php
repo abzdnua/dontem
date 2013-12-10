@@ -103,7 +103,7 @@ $this->breadcrumbs=array(
                     case Constants::BLOCK_TYPE_IMG:$this->renderPartial('blocks/img',array('block_id'=>$block->id));break;
                 }?>
             <?}
-            Yii::app()->clientScript->registerScriptFile('/js/yand_script.js');
+            Yii::app()->clientScript->registerScriptFile('/js/yand_script.js',CClientScript::POS_END);
         }?>
 
                <!--   <h2>Персоналом ООО «ДОНТЭМ» производится выполнение работ по реконструкции поверхностей нагрева</h2>
