@@ -62,6 +62,20 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
 
         $(this).children().css({display:'none'})
         $(this).removeClass('active')
+    }).on('touchstart',function(event){
+
+            if( !$(event.target).closest(".menu ul li.sub").length ){
+                // return;
+                $('.submenu').css({display:'none'})
+                $('.menu ul li.sub').removeClass('active')
+
+            }
+
+
+
+
+
+        event.stopPropagation();
     }).on('mouseenter touchend','.block_news ul li',function(){
 
     $(this).find('.text_move').stop().animate({top:0},300)
