@@ -1318,6 +1318,11 @@ h3
     margin-bottom: 20px;
     /*min-height: 192px;*/
 }
+.page_project_more .white_block .text
+{
+    max-width: 921px;
+    margin-left: 9px;
+}
 .page_project_more .white_block .f_l,.page_project_more .white_block .f_r
 {
     margin-top: 0;
