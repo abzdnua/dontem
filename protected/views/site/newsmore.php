@@ -111,7 +111,14 @@ $this->breadcrumbs=array(
                         <?php $tags = Yii::app()->db->createCommand("SELECT t.tag FROM tags as t, news_and_tags as nat WHERE t.id = nat.tag_id AND nat.news_id = $news->id")->queryColumn();
                         if($tags){?>
                         <form method="post" action="/site/getNews">
-                            <input type="hidden" name="tag"/>
+
+                                <input type="hidden" name ="page" value="1">
+                                <input type="hidden" name ="tag" value="">
+                                <input type="hidden" name ="work_type" value="">
+                                <input type="hidden" name ="difficulty" value="">
+                                <input type="hidden" name ="news_date" value="">
+
+
                             <div class="block_href">
                                 <?php foreach ($tags as $tag) {
                                 echo "<a class='bt_news_more change_tag' >$tag</a>";
