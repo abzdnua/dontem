@@ -27,7 +27,7 @@ $this->breadcrumbs=array(
 
                 if(isset($tes[$key+1])){
                     $next['id'] = $tes[$key+1];
-                    $next['name'] = Constants::getTes($tes[$next['id']]);
+                    $next['name'] = Constants::getTes($tes[$key+1]);
                 }else{
                     $next['id'] = $tes[0];
                     $next['name'] = Constants::getTes($tes[0]);
