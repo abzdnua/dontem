@@ -117,11 +117,13 @@ $this->breadcrumbs=array(
                     }
                         ?>
                 </div>
+                <?php if($news->video_link){?>
                 <div class="f_r w_280_200">
                     <object width="280" height="200"><param name="movie" value="<?php echo $news->video_link ?>?hl=ru_RU&amp;version=3"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="<?php echo $news->video_link ?>?hl=ru_RU&amp;version=3" type="application/x-shockwave-flash" width="280" height="200" allowscriptaccess="always" allowfullscreen="true"></embed></object>
                     <p> <?php echo $news->video_des ?></p>
 
                 </div>
+                <?}?>
                 <div class="clr"></div>
             </div>
             <div class="clr"></div>
