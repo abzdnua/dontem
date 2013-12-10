@@ -9,17 +9,7 @@ $this->breadcrumbs=array(
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:800&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 <script>
-    $(document).ready(function(){
-  
 
-        $('.paralax_baraban img').css({display:'none'})
-        var img_src = $('.paralax_baraban img').attr('src')
-        var img = new Image();
-        img.src = img_src;
-        img.onload =function(){
-            $('.paralax_baraban img').fadeIn(800)
-        }
-    })
 
 
 

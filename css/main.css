@@ -533,7 +533,7 @@ h2
     font: 16px/24px 'open sans';
     color: #4a4b4c;
  padding: 20px 20px 35px  20px;
-
+    background: white;
     border: 1px solid #ececec;
     border-top:none;
 }
