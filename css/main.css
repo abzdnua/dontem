@@ -1213,7 +1213,8 @@ h3
 {
     font-size: 28px;
     font-weight: normal;
-    margin-top: 49px;
+    margin-top: 25px;
+    margin-bottom: 15px;
 }
 .project_block
 {
@@ -1329,6 +1330,10 @@ h3
     color: #252526;
 
     margin-bottom: 20px;
+}
+.page_project_more .arrow_left:last-child
+{
+    margin-bottom: 40px;
 }
 .page_project_more .w_940 h2
 {
