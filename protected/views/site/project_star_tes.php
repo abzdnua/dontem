@@ -110,10 +110,10 @@ $this->breadcrumbs=array(
                     <div class="b-images-head"></div>
                     <div class="b-images-list b-images-list_layout_stream b-images-list_dangling_no b-images-list_type_home b-images-list_fluid_yes i-images-lists__list i-clearfix i-bem b-images-list_js_inited" onclick="return {&quot;b-images-list&quot;:{}}">
 
-                        <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
+                        <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem">
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="0" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_40.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="0" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_40.jpg" width="267" height="178" style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -121,7 +121,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="1" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_41.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="1" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_41.jpg" width="267" height="178" style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -129,7 +129,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="2" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_42.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="2" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_42.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -137,7 +137,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="3" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_43.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="3" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_43.jpg" width="267" height="178" style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -145,7 +145,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="4" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_44.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="4" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_44.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -153,7 +153,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="5" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_45.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="5" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_45.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -161,7 +161,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="6" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_46.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="6" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_46.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -169,7 +169,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="7" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_47.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="7" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_47.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -177,7 +177,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="8" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_48.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="8" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_48.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -185,7 +185,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="9" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_49.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="9" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_49.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -193,7 +193,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="10" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_50.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="10" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_50.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
@@ -201,7 +201,7 @@ $this->breadcrumbs=array(
                         <div class="b-images-item b-images-item_home_yes b-images-item_in_stream b-images-list__unit i-bem" >
                             <div class="b-images-item__wrap">
                                 <div class="b-link b-link_counter_blockstat b-link_type_home i-counter i-bem">
-                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="11" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_51.jpg" style="height: 178px; margin-left: -15px;">
+                                    <img alt="" class="gal width-h-p b-images-item__preview" data-db="135" data-ajax="true" data-description="dasfsg" data-current="11" data-folder="/files/gallery/" src="/files/gallery/b1e11a00265e8f914847bb58eaf04d8d_51.jpg" width="267" height="178"  style="height: 178px; margin-left: -15px;">
                                 </div>
                             </div>
 
