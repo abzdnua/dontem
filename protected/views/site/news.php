@@ -512,16 +512,16 @@ if(!$news)
             console.log(213)
             $('input[name=work_type]').val($(this).text())
             $('form').submit()
-        }).on('click','.change_diff',function(){
+        }).on('click touchstart','.change_diff',function(){
             $('input[name=difficulty]').val($(this).attr('id').replace('diff_',''))
             $('form').submit()
-        }).on('click','.change_d',function(){
+        }).on('click touchstart','.change_d',function(){
             $('input[name=news_date]').val($(this).attr('id'))
             $('form').submit()
-        }).on('click','.change_page',function(){
+        }).on('click touchstart','.change_page',function(){
             $('input[name=page]').val($(this).text())
             $('form').submit()
-        }).on('click','.change_tag',function(){
+        }).on('click touchstart','.change_tag',function(){
             $('input[name=tag]').val($(this).text())
             $('form').submit()
         })
