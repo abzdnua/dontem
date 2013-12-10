@@ -1584,5 +1584,6 @@ min-width: 100%;
 }
 p
 {
+    width: auto !important;
     position: relative;
 }
