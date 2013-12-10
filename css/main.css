@@ -1053,6 +1053,7 @@ h3
 {
     display: table-cell;
     vertical-align: middle;
+    padding-top: 13px;
 }
 
 .block_news_more .white_block
@@ -1144,7 +1145,7 @@ h3
     color:#252526 ;
     width: 910px;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 .big_text .italic
 {
@@ -1350,8 +1351,8 @@ h3
     -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
-    margin-top: 15px;
-    margin-bottom: 40px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 #iview .bottom_text
 {

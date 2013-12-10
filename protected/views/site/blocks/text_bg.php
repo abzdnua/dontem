@@ -1,8 +1,8 @@
 
-<div class="blue_block" style="margin-bottom: 40px;">
+<div class="blue_block" >
 <?php
     $text = BlockText::model()->find('block_id = '.$block_id);
     // стилями было бы проще
-    echo "<div>$text->content</div>";
+    echo "<div><span style='height: 52px;display: inline-block;overflow: hidden;max-width: 900px;'>$text->content</span></div>";
 ?>
 </div>
