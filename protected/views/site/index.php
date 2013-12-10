@@ -48,11 +48,11 @@ $this->pageTitle=Yii::app()->name;
                 <?php
                 $str = $project->project_name;
                 $sep = mb_strrpos(mb_substr($str , 0, 120)," ");
-                $str1 = mb_substr($project->project_name , 0, , $sep);
+                $str1 = mb_substr($str , 0, $sep);
                 $str = mb_substr($str , $sep);
 
                 $sep = mb_strrpos(mb_substr($str , 0, 120)," ");
-                $str2 = mb_substr($project->project_name , 0, , $sep);
+                $str2 = mb_substr($project->project_name , 0, $sep);
                 $str3 = mb_substr($str , $sep);
 
 
