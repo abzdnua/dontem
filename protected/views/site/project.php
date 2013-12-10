@@ -15,21 +15,25 @@ $this->breadcrumbs=array(
             <h1>Проекты на <?php echo $tes_name ?></h1>
     <div class="w_940">
         <?php $tes = Yii::app()->db->createCommand("SELECT DISTINCT(tes_id) FROM projects WHERE deleted = 0 AND is_active = 1")->queryColumn();
-            if(isset($tes[$tes_id])){
-                $prev['id'] = $tes[$tes_id];
-                $prev['name'] = Constants::getTes($tes[$tes_id]);
-            }else{
-                $prev['id'] = end($tes);
-                $prev['name'] = Constants::getTes(end($tes));
-            }
+        foreach ($tes as $key => $subtes) {
+            if($subtes = $tes_id){
+                if(isset($tes[$key-1])){
+                    $prev['id'] = $tes[$key-1];
+                    $prev['name'] = Constants::getTes($tes[$key-1]);
+                }else{
+                    $prev['id'] = end($tes);
+                    $prev['name'] = Constants::getTes(end($tes));
+                }
 
-            if(isset($tes[$tes_id+2])){
-                $next['id'] = $tes[$tes_id+2];
-                $next['name'] = Constants::getTes($tes[$next['id']]);
-            }else{
-                $next['id'] = $tes[0];
-                $next['name'] = Constants::getTes($tes[0]);
+                if(isset($tes[$key+1])){
+                    $next['id'] = $tes[$key+1];
+                    $next['name'] = Constants::getTes($tes[$next['id']]);
+                }else{
+                    $next['id'] = $tes[0];
+                    $next['name'] = Constants::getTes($tes[0]);
+                }
             }
+        }
          ?>
         <a class="bt_simp prev no_mar_left" href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$prev['id']))?>"><?php echo $prev['name'] ?> <span class="arrow_left_button"></span></a>
         <a class="bt_simp next" href="<?=Yii::app()->urlManager->createUrl('site/project',array('tes_id'=>$next['id']))?>"><?php echo $next['name'] ?><span class="arrow_right_button"></span></a>
