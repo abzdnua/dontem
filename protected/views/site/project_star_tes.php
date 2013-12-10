@@ -103,6 +103,7 @@ $this->breadcrumbs=array(
                     case Constants::BLOCK_TYPE_IMG:$this->renderPartial('blocks/img',array('block_id'=>$block->id));break;
                 }?>
             <?}
+            Yii::app()->clientScript->registerScriptFile('/js/yand_script.js');
         }?>
 
 
