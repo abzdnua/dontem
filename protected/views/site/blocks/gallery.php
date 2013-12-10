@@ -1,4 +1,6 @@
-<div class="w940">
+<div class="w940" style="width: 930px;
+overflow: hidden;
+margin-left: 18px;">
 <div class="pictures"  style="margin-top: 35px;width: 940px;margin:0 auto;max-height: 370px;overflow: hidden;">
 
         <?php

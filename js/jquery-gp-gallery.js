@@ -84,6 +84,7 @@
             var $last_item;
 
             $.each(bucket.items, function(idx2, item) {
+
                 if (bucket.scale) {
                     item.width = Math.round(item.width * bucket.scale)
                     item.height = item.height * bucket.scale
@@ -99,7 +100,7 @@
                 });
                 item.container.css({
                     height: "178 px",
-                    width: item.width+"px",
+                    width: item.width+1+"px",
                     marginTop: $settings.gutter + 'px'
                 });
                 if (idx2 > 0) {
@@ -119,6 +120,7 @@
                 $last_item.width = $last_item.width + max_bucket_width - getWidthForBucket(bucket.items);
                 $last_item.pic.css({
                     width: $last_item.width + 'px'
+
                 });
             }
         });
