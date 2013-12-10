@@ -117,7 +117,7 @@ $this->breadcrumbs=array(
                                 echo "<a class='bt_news_more ' >$tag</a>";
 
                                 } ?>
-                              <div class="clr"></div>
+                              <div class="clr" style="margin-bottom: 28px"></div>
                             </div>
                         </form>
                             <?}?>

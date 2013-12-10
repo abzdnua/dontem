@@ -1,5 +1,5 @@
 
-<div class="blue_block" >
+<div class="blue_block" style="width: 937px;">
 <?php
     $text = BlockText::model()->find('block_id = '.$block_id);
     // стилями было бы проще
