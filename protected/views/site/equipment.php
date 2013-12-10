@@ -29,10 +29,15 @@ $(document).ready(function(){
                     <span>грузоподъемность 18 т и 48 т</span>
                 </div>
                 <div class="f_r">
-                    <img src="../images/equipment/equip_05.png"/>
+                    <!--img src="../images/equipment/equip_05.png"/>
                    <p>Краны самоходные на гусеничном ходу -</p> <br/>
                     <p> МКГС-100</p>   <span>- грузоподъемность 100 т </span><br/>
-                    <p> МКГ-25БР</p>    <span>- грузоподъемность 25 т </span>
+                    <p> МКГ-25БР</p>    <span>- грузоподъемность 25 т </span-->
+
+                    <img src="../images/equipment/kamaz.png"/>
+                                      <p>Краны автомобильные КС-45-717К-1 (г/п 25 т)<br/> на шасси КАМАЗ-65115 (2 шт.)</p>
+
+
                 </div>
     <div class="clr"></div>
                 <div class="f_l">
