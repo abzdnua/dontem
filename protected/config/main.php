@@ -7,7 +7,7 @@ Yii::setPathOfAlias('bootstrap', 'protected/extensions/booster');
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'ООО “Донтем”',
+	'name'=>'ДОНТЭМ',
     'charset' => 'utf-8',
     'language' => 'ru',
 
