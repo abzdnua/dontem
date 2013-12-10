@@ -508,7 +508,7 @@ if(!$news)
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $(document).on('click','.change_wt',function(){
+        $(document).on('click touchstart','.change_wt',function(){
             console.log(213)
             $('input[name=work_type]').val($(this).text())
             $('form').submit()
