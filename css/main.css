@@ -1255,6 +1255,7 @@ h3
     padding: 0 19px;
     overflow: hidden;
 }
+
 .page_project .top_text
 {
     margin-top: 13px;
@@ -1379,6 +1380,8 @@ h3
 {
     margin-top: 13px;
     margin-left: 16px;
+
+    max-width: 780px;
 }
 #container
 {

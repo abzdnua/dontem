@@ -106,6 +106,7 @@
     z-index: 4;
     overflow: hidden;
     cursor: default;
+    height: auto !important;
 }
 
 .iview-caption.caption1 {
