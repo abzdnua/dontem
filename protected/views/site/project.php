@@ -16,7 +16,7 @@ $this->breadcrumbs=array(
     <div class="w_940">
         <?php $tes = Yii::app()->db->createCommand("SELECT DISTINCT(tes_id) FROM projects WHERE deleted = 0 AND is_active = 1")->queryColumn();
         foreach ($tes as $key => $subtes) {
-            if($subtes = $tes_id){
+            if($subtes == $tes_id){
                 if(isset($tes[$key-1])){
                     $prev['id'] = $tes[$key-1];
                     $prev['name'] = Constants::getTes($tes[$key-1]);
