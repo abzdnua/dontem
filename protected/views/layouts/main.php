@@ -65,7 +65,7 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
     }).on('touchstart','.menu ul li.sub',function(){
       if ( first_click ==1)
       {
-          first_click =2
+         return
       }
         if ( first_click ==2)
         {
