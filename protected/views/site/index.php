@@ -45,10 +45,14 @@ $this->pageTitle=Yii::app()->name;
                         ?>
             <div href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>" style="display: block;cursor: pointer" data-iview:image="<?php echo $src ?>" >
                 <a class="iview-caption" data-x="0" data-y="0" style="width:900px;height:370px" href="<?=Yii::app()->urlManager->createUrl('site/projectMore',array('link'=>DLL::makeLink($project->project_name).'_'.$project->id))?>">                                   </a>
-
-                <div class="iview-caption " data-x="15" data-y="15" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
-                <div class="iview-caption " data-x="15" data-y="65" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
-                <div class="iview-caption " data-x="15" data-y="115" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo $project->project_name ?></div></div>
+                <?php
+                $str1 = mb_substr($project->project_name , 0, mb_strrpos(mb_substr($project->project_name , 0, 60), " "));
+                $str2 = mb_substr($project->project_name , 60, mb_strrpos(mb_substr($project->project_name , 60, 120), " "));
+                $str3 = mb_substr($project->project_name , 120);
+                 ?>
+                <div class="iview-caption " data-x="15" data-y="15" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo trim($str1) ?></div></div>
+                <div class="iview-caption " data-x="15" data-y="65" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo trim($str2) ?></div></div>
+                <div class="iview-caption " data-x="15" data-y="115" data-transition="wipeUp" data-speed="500"  data-easing="easeOutQuint" ><div class="top_text"><?php echo trim($str3) ?></div></div>
 
                 <div class="iview-caption" data-x="435" data-y="218" data-transition="wipeDown" data-speed="1000" data-easing="easeOutQuint" ><div class="bottom_text">
                         <?php echo DLL::substrText($project->short_des,340) ?>
