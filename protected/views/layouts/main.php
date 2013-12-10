@@ -56,6 +56,16 @@
 $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         $(this).children().css({display:'block'})
     $(this).addClass('active')
+    }).on('touchstart','body',function(){
+        if($('.menu ul li.sub').hasClass('active'))
+        {
+            $('.menu ul li.sub').removeClass('active')
+        }
+        else
+        {
+            return
+        }
+
     }).on('mouseleave ','.menu ul li.sub',function(){
         $(this).children().css({display:'none'})
         $(this).removeClass('active')
