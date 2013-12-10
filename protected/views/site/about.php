@@ -29,4 +29,8 @@ $this->breadcrumbs=array(
 
         </div>
       </div>
+
+    <a href="/baraban" class="baraban_block" style="margin-top: 50px">
+        На энергоблоке №5 Старобешевской ТЭС в беспрецедентные сроки была выполнена замена барабана котлоагрегата ТП-100.
+    </a>
 </div>

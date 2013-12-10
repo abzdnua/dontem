@@ -115,6 +115,7 @@
                
             });
             if (!bucket.last && $last_item) {
+                alert('1')
                 $last_item.width = $last_item.width + max_bucket_width - getWidthForBucket(bucket.items);
                 $last_item.pic.css({
                     width: $last_item.width + 'px'
