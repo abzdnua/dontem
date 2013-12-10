@@ -171,12 +171,12 @@ h1
 }
 .blue_block
 {
-    background: url("../images/bg_blue.png") repeat-x;
+   /* background: url("../images/bg_blue.png") repeat-x;
     height: 60px;
     border: 1px solid #ececec;
     text-align: center;
     color: white;
-    font: italic 20px/24px 'open sans' ;
+    font: italic 20px/24px arial ;
 
     font-style: italic;
     padding-top: 10px;
@@ -185,9 +185,20 @@ h1
     display: table;
     width: 958px;
     padding-top: 0;
-    height: 70px;
+    height: 70px;*/
 
-
+    background: #0170b4 url("../images/bg_blue.png") repeat-x;
+    height: 60px;
+    border: 1px solid #ececec;
+    text-align: center;
+    color: white;
+    font: italic 20px/24px arial;
+    font-style: italic;
+    padding-top: 10px;
+    padding: 10px;
+    display: table;
+    width: 958px;
+    min-height: 60px;
 
 }
 .blue_block div
