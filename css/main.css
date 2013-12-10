@@ -158,8 +158,12 @@ h1
     background: url("../images/arrow_menu.png") right center no-repeat;
     padding-right: 15px;
     cursor: pointer;
-    color: #004075;
+    /*color: #004075;*/
     position: relative;
+}
+.menu ul li.sub.color_menu
+{
+    color: #004075;
 }
 #header
 {

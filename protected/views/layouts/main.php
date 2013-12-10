@@ -114,7 +114,7 @@ $(document).ready(function(){
 <div class="ph f_r">(062) 381-31-87</div>
         <div class="menu f_l">
             <ul>
-                <li class="sub">Проекты
+                <li class="sub <? if(strpos(Yii::app()->controller->action->id,'project')!==false){echo 'color_menu';} ?> ">Проекты
                     <div class="submenu">
                         <?php $tes = $tes = Yii::app()->db->createCommand("SELECT DISTINCT(tes_id) FROM projects WHERE deleted = 0 AND is_active = 1")->queryColumn();
                         foreach ($tes as $key => $value) {?>

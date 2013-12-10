@@ -22,7 +22,9 @@
         if (extra) {
             width += extra.width;
         }
+
         return width;
+
     }
 
     return this.each(function() {
@@ -59,8 +61,11 @@
             item.width = item.original_width * item.scale;
             item.height = item.original_height * item.scale;
             var new_bucket_width = getWidthForBucket(last_bucket.items, item);
+            console.log(new_bucket_width)
+            console.log(max_bucket_width)
             if (new_bucket_width > max_bucket_width) {
                 buckets.push(last_bucket);
+
                 last_bucket = {
                     items: [],
                     width: 0,
@@ -80,8 +85,8 @@
 
             $.each(bucket.items, function(idx2, item) {
                 if (bucket.scale) {
-                    item.width = Math.round(item.width * bucket.scale);
-                    item.height = Math.round(item.height * bucket.scale);
+                    item.width = item.width * bucket.scale
+                    item.height = item.height * bucket.scale
                 }
                 var pic = item.pic,
                     container = item.container;
