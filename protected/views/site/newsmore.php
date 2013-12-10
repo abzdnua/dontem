@@ -108,6 +108,19 @@ $this->breadcrumbs=array(
                             <span class="left">Плановая</span><span class="right">Уникальная</span>
                         </div>
                         <div class="clr" ></div>
+                        <?php $tags = Yii::app()->db->createCommand("SELECT t.tag FROM tags as t, news_and_tags as nat WHERE t.id = nat.tag_id AND nat.news_id = $news->id")->queryColumn();
+                        if($tags){?>
+                        <form method="post" action="/site/getNews">
+                            <input type="hidden" name="tag"/>
+                            <div class="block_href">
+                                <?php foreach ($tags as $tag) {
+                                echo "<a class='bt_news change_tag' >$tag</a>";
+
+                                } ?>
+                              <div class="clr"></div>
+                            </div>
+                        </form>
+                            <?}?>
                         <?php if($news->file_id){
                             $file = Files::model()->findByPk($news->file_id);
                             if($file and is_file($_SERVER['DOCUMENT_ROOT'].'/files/'.$file->file_path)){
@@ -240,3 +253,11 @@ $this->breadcrumbs=array(
 
    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(document).on('click','.change_tag',function(){
+            $('input[name=tag]').val($(this).text())
+            $('form').submit()
+        })
+    })
+</script>
