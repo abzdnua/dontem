@@ -103,6 +103,7 @@ $this->breadcrumbs=array(
                     case Constants::BLOCK_TYPE_IMG:$this->renderPartial('blocks/img',array('block_id'=>$block->id));break;
                 }?>
             <?}
+            Yii::app()->clientScript->registerScriptFile('/js/yand_script.js',CClientScript::POS_END);
         }?>
             <div class="b-page-wrap"  style="margin-top: 35px;">
                 <div class="b-page-layout b-page-layout_page_index i-clearfix">
