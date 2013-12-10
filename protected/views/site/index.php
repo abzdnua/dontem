@@ -31,7 +31,7 @@ $this->pageTitle=Yii::app()->name;
 </script>
 <?php $projects = Projects::model()->findAll("deleted = 0 AND is_active = 1 AND show_on_main = 1 LIMIT 0,9") ?>
 <div class="w_980 page_princip" >
-<h1 style="margin-bottom: 50px;">ООО «ДОНТЭМ» -Донбасстеплоэлектромонтаж</h1>
+<h1 style="margin-bottom: 50px;">ООО «ДОНТЭМ» - Донбасстеплоэлектромонтаж</h1>
 <?php if($projects){?>
     <div class="container">
         <div id="iview">

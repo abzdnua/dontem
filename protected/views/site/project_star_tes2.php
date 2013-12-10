@@ -6,7 +6,49 @@ $this->breadcrumbs=array(
     'Донтэм на  Трипольской тэс',
 );
 ?>
+<script>
+    $(function() {
+        $('.pictures').gpGallery('img');
+    })
+</script>
 
+<style type="text/css">
+    .pictures {
+        margin: 100px auto;
+        width: 980px;
+    }
+    .clear {
+        clear: both;
+    }
+</style>
+
+
+<div class="pictures">
+
+
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_03.png" width="267" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_05.png" width="267" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_07.png" width="267" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_09.png" width="119" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_15.png" width="230" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_17.png" width="230" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_19.png" width="231" height="177" />
+
+                <img class="b-images-item__preview" alt="" src="../images/news/photo/trip_tes/news_21.png" width="231" height="177" />
+
+
+
+
+
+    <div class="clear"></div>
+</div>
 <div class="w_980 page_news page_project_more">
 
             <h1 style="margin-bottom: 20px;">Донтэм на  Трипольской тэс</h1>

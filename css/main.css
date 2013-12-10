@@ -1524,3 +1524,8 @@ min-width: 100%;
     padding-top: 10px;
     height: 60px;
 }
+.pictures div{
+    height: 178px !important;
+    max-height: 178px !important;
+    overflow: hidden;
+}

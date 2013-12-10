@@ -45,9 +45,9 @@
 <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/_gal.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.imagesloaded.js"></script>
-<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/masonry.pkgd.js"></script>
-
+<!--script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.imagesloaded.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/js/masonry.pkgd.js"></script-->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery-gp-gallery.js"></script>
 
 
 <!--a href="<?=Yii::app()->urlManager->createUrl('site/delivery_and_payment')?>">Доставка и оплата</a-->
