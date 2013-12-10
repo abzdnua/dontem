@@ -63,6 +63,7 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         $(this).children().css({display:'none'})
         $(this).removeClass('active')
     }).on('touchstart','.menu ul li.sub',function(){
+        console.log(first_click)
       if ( first_click ==1)
       {
          return
