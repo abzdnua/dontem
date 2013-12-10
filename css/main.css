@@ -359,7 +359,7 @@ h1
     -webkit-border-radius: 5px;
     border: 1px solid #d8d7d4;
     height: 37px !important;
-    background: url("../images/bg_bt.png") left top repeat-x !important;
+    background: url("/images/bg_bt.png") left top repeat-x !important;
     font:bold 16px/18px 'open sans';
     text-transform: uppercase;
     letter-spacing: 1px;
