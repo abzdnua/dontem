@@ -56,19 +56,6 @@
 $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         $(this).children().css({display:'block'})
     $(this).addClass('active')
-    }).on('touchstart','.all_page',function(){
-
-        if($('.sub').hasClass('active'))
-        {
-
-            $('.sub').removeClass('active')
-            $('.submenu').hide()
-        }
-        else
-        {
-            return
-        }
-
     }).on('mouseleave ','.menu ul li.sub',function(){
         $(this).children().css({display:'none'})
         $(this).removeClass('active')
