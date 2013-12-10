@@ -60,7 +60,8 @@
                             $('#for-map img').animate({opacity:1},500)
 
                             $('#preloader_gif').addClass('no_back')
-                           /* $('.preloader').fadeOut(500)*/
+
+                            $('.preloader').fadeOut(500)
                         })
                     })
 
@@ -88,7 +89,7 @@
                             $('#for-map img').animate({opacity:1},500)
 
                             $('#preloader_gif').addClass('no_back')
-                         /*   $('.preloader').fadeOut(500)*/
+                            $('.preloader').fadeOut(500)
                         })
 
                     })
@@ -119,7 +120,7 @@
                     {
                         $('#for-map img').animate({opacity:1},500)
                          $('#preloader_gif').addClass('no_back')
-
+                        $('.preloader').fadeOut(500)
                     })
                     $('#count').text((current+1)+' / '+length)
                     if(length<=1)
@@ -155,6 +156,7 @@
                 {
                     $('#for-map img').animate({opacity:1},500)
                     $('#preloader_gif').addClass('no_back')
+                    $('.preloader').fadeOut(500)
                 })
                 $('#count').text(current+1+' / '+length)
                 if(length<=1)
