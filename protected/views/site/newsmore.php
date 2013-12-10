@@ -82,7 +82,7 @@ $this->breadcrumbs=array(
     </div>
 </div>
 <div class="w_980">
-   <div class="block_news_more w_960">
+   <div class="block_news_more ">
 
            <div class="top_block">
 
