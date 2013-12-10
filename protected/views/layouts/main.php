@@ -57,6 +57,7 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
         $(this).children().css({display:'block'})
     $(this).addClass('active')
     }).on('touchstart','.all_page',function(){
+        alert('1')
         if($('.menu ul li.sub').hasClass('active'))
         {
             $('.menu ul li.sub').removeClass('active')
