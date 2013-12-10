@@ -1143,7 +1143,7 @@ h3
 {
     font: 16px/24px 'open sans';
     color:#252526 ;
-    width: 910px;
+    width: 910px !important;
     margin: 0 auto;
     margin-top: 20px;
 }
