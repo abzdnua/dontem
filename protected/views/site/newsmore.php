@@ -46,7 +46,7 @@ $this->breadcrumbs=array(
 <div class="w_980 page_news">
 
             <h1 style="margin-bottom: 20px;">Новости</h1>
-    <div class="w_960">
+    <div class="">
         <?php $ids = Yii::app()->db->createCommand("SELECT id FROM news WHERE deleted = 0 AND is_active = 1 ORDER BY news_date DESC")->queryColumn();
         foreach ($ids as $key => $arNew) {
             if($arNew==$news->id){
