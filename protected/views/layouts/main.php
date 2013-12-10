@@ -60,8 +60,9 @@ $(document).on('mouseenter touchstart','.menu ul li.sub',function(){
 
         if($('.sub').hasClass('active'))
         {
-            alert('1')
+
             $('.sub').removeClass('active')
+            $('.submenu').hide()
         }
         else
         {
