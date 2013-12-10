@@ -10,6 +10,12 @@ $this->breadcrumbs=array(
 );
 ?>
 <script>
+    $(function() {
+        $('.pictures').gpGallery('img');
+    })
+</script>
+
+<script>
     $(document).ready(function(){
 /*
 
