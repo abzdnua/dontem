@@ -52,7 +52,38 @@ $this->breadcrumbs=array(
                           }
                         ?>
                         <!-- <img src="../images/project/project_big.png"/> -->
-                        <div class="top_text"><?php echo $project->project_name ?></div>
+                        <?php
+                            $str = $project->project_name;
+                            $str2 = "";
+                            $str3="";
+
+                            if(strlen($str)>120){
+                                $sep = mb_strrpos(mb_substr($str , 0, 120)," ");
+                                $str1 = mb_substr($str , 0, $sep);
+                                $str = mb_substr($str , $sep+1);
+
+                                if(strlen($str)>120){
+                                    $sep = mb_strrpos(mb_substr($str , 0, 120)," ");
+                                    $str2 = mb_substr($project->project_name , 0, $sep);
+                                    $str3 = mb_substr($str , $sep+1);
+                                }else{
+                                    $str2 = $str;
+                                }
+                            }else{
+                                $str1 = $str;
+                            }
+
+
+
+                         ?>
+                        <div class="top_text"><?php echo $str1 ?></div>
+                        <?php if($str2){?>
+                        <div class="top_text"><?php echo $str2 ?></div>
+                        <?}?>
+                        <?php if($str3){?>
+                        <div class="top_text"><?php echo $str3 ?></div>
+                        <?}?>
+
                         <div class="bottom_text">
                             <?php echo DLL::substrText($project->short_des,340) ?>
                         </div>

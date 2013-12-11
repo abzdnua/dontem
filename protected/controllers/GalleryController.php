@@ -30,12 +30,6 @@ class GalleryController extends Controller
         if(!empty($_POST['dir']))
         {
             $elements='[';
-            if($_POST['action']==-1)
-            {
-                //РїРѕ РІСЃРµРј РїР°РїРєР°Рј
-            }
-            else
-            {
                 $dir = $root."/".$_POST['dir']."size1";
                 	$array=null;
                     if (is_dir($dir)) {
@@ -61,7 +55,6 @@ class GalleryController extends Controller
                 }
                 $elements.="]";
                 echo $elements;
-            }
 
         }
     }
