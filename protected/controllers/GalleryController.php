@@ -30,7 +30,7 @@ class GalleryController extends Controller
         if(!empty($_POST['dir']))
         {
             $elements='[';
-                $dir = $root."/".$_POST['dir']."size1";
+                $dir = $_SERVER['DOCUMENT_ROOT']."/".$_POST['dir']."size1";
                 	$array=null;
                     if (is_dir($dir)) {
                     if ($dh = opendir($dir)) {
