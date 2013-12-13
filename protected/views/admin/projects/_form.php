@@ -61,6 +61,7 @@
 	<div class="video_preview">
 		<?php if(!$model->isNewRecord and $model->video_link){?>
 			<object class="f_l" width="350" height="280"><param name="movie" value="<?php echo $model->video_link ?>?version=3&amp;hl=ru_RU"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="<?php echo $model->video_link ?>?version=3&amp;hl=ru_RU" type="application/x-shockwave-flash" width="460" height="280" allowscriptaccess="always" allowfullscreen="true"></object>
+      <br><a class="clear_video_link" style="cursor:pointer">Удалить</a>
 		<?}?>
 	</div>
 

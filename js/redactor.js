@@ -169,8 +169,11 @@ console.log($('.empty_red').length)
             var path = th.val()
             var res = '//www.youtube.com/v/'+path.substring(path.indexOf('v=')+2)
             console.log(res)
-            th.siblings('.video_preview').html('<object  class="f_l" width="460" height="280"><param name="movie" value="'+res+'?version=3&amp;hl=ru_RU"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="'+res+'?version=3&amp;hl=ru_RU" type="application/x-shockwave-flash" width="460" height="280" allowscriptaccess="always" allowfullscreen="true"></embed></object>')
+            th.siblings('.video_preview').html('<object  class="f_l" width="460" height="280"><param name="movie" value="'+res+'?version=3&amp;hl=ru_RU"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="'+res+'?version=3&amp;hl=ru_RU" type="application/x-shockwave-flash" width="460" height="280" allowscriptaccess="always" allowfullscreen="true"></embed></object><br><a class="clear_video_link">Удалить</a>')
             $('[name*=video_link]').val(res)
         }
+    }).on('click','.clear_video_link',function(){
+        $('[name*=video_link]').val('')
+        $(this).parent().remove()
     })
 })
