@@ -36,7 +36,7 @@ $this->pageTitle=Yii::app()->name;
     <div class="container">
         <div id="iview">
             <?php foreach ($projects as $project) {?>
-            <?php $show_img = Files::model()->findByPk($project->image_id);
+            <?php $src = '';$show_img = Files::model()->findByPk($project->image_id);
                           if($show_img){
                               if(is_file($_SERVER['DOCUMENT_ROOT'].'/files/m_'.$show_img->file_path)){
                                   $src = "files/m_$show_img->file_path";
